@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon-moon.png">
     <title>AppliShare</title>
     <link rel="stylesheet" href="./style.css"/>
 </head>
@@ -12,6 +13,13 @@
     </div>
 
     <form name="my-form" action="">
+
+        <div id="dateRef"></div>
+        <img class="pinGauche" src="./img/pngimg_pin_PNG74_xs.png" alt="image pin"/>
+        <img class="pinDroite" src="./img/pngimg_pin_PNG80_xs.png" alt="image pin"/>
+
+        <!-- <br /> -->
+
         <label>Veuillez choisir un quartier :</label>
         <select id="quartier" name="quartier">
             <option value="" selected>Selection...</option>
@@ -39,7 +47,7 @@
         <br />
     </form>
 
-    <div style="transform:translateX(50px);" id="choixQuartier">ESSAI</div>
+    <div style="transform:translateX(-50px);" id="choixQuartier"></div>
 
     <hr>
 
@@ -51,6 +59,16 @@
     <script src="./fonction_CreaTable.js"></script>
 
     <script>
+
+        const today = new Date();
+        const month = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin',
+                        'juillet', 'août','septembre', 'octobre', 'novembre', 'decembre'];
+        let todayFormat =
+            today.getDate() + ' ' + month[today.getMonth()] + ' ' + today.getFullYear();
+        console.log(todayFormat);
+        let champDate = document.getElementById("dateRef");
+        champDate.innerText = todayFormat;
+
 
         const fetchData = () => {
             return new Promise((resolve, reject) => (
