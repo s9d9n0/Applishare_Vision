@@ -58,7 +58,7 @@ vol_pd_as_cj_d1_50_logs;pd;CJ;d1;Int;logs;ofats_pd;1.0;0.54;53.96
 vol_pd_as_cj_d1_50_logs;pd;CJ;d1;Int;logs;tourisme3_pd;50.0;0.11;0.23
 vol_pd_as_cj_d1_50_logs;pd;CJ;d1;Int;logs;ecmoss_pd;1.0;0.39;38.78
 vol_pd_as_cj_d1_50_logs;pd;CJ;d1;Int;logs;papaye_pd;20.0;1.53;7.65
-vol_pd_as_cj_d1_50_logs;pd;CJ;d1;Int;logs;harmonica_pd;5.0;0.13;2.56
+vol_pd_as_cj_d1_50_logs;pd;CJ;d1;Int;logs;harmonica_pd;5.0;0.13;2.57
 vol_pd_as_cn_d1_50_data;pd;CN;d1;Int;data;toucan_pd;5.0;2.68;53.6
 vol_pd_as_cn_d1_50_data;pd;CN;d1;Int;data;iecn_pd;1000.0;0.0;0.0
 vol_pd_as_cn_d1_50_data;pd;CN;d1;Int;data;ariege_pd;30.0;19.95;66.5
@@ -66,7 +66,7 @@ vol_pd_as_cn_d1_50_data;pd;CN;d1;Int;data;ecmoss_pd;10.0;0.51;5.08
 vol_pd_as_cn_d1_50_data;pd;CN;d1;Int;data;goeland_pd;30.0;15.82;52.73
 vol_pd_as_cn_d1_50_logs;pd;CN;d1;Int;logs;toucan_pd;20.0;0.71;3.55
 vol_pd_as_cn_d1_50_logs;pd;CN;d1;Int;logs;ecmoss_pd;6.0;0.71;11.88
-vol_pd_as_cn_d1_50_logs;pd;CN;d1;Int;logs;ariege_pd;5.0;0.37;7.32
+vol_pd_as_cn_d1_50_logs;pd;CN;d1;Int;logs;ariege_pd;5.0;0.37;7.34
 vol_pd_as_cn_d1_50_logs;pd;CN;d1;Int;logs;iecn_pd;5.0;0.0;0.0
 vol_pd_as_cn_d1_50_logs;pd;CN;d1;Int;logs;goeland_pd;1.0;0.0;0.09
 vol_pd_as_df_d1_50_data;pd;DF;d1;Int;data;portar_pd;5.0;2.0;40.0
@@ -209,7 +209,7 @@ vol_pd_as_pl_d1_50_logs;pd;PL;d1;Int;logs;pilotdon_pd;10.0;0.0;0.02
 vol_pd_as_pl_d1_50_logs;pd;PL;d1;Int;logs;archimed_pd;1.0;0.05;4.88
 vol_pd_as_px_d1_50_data;pd;PX;d1;Int;data;prismeipc_pd;1.0;0.0;0.0
 vol_pd_as_px_d1_50_data;pd;PX;d1;Int;data;enquetesprix_pd;10.0;0.07;0.7
-vol_pd_as_px_d1_50_data;pd;PX;d1;Int;data;ddc_pd;1495.04;336.2;22.49
+vol_pd_as_px_d1_50_data;pd;PX;d1;Int;data;ddc_pd;1495.04;336.3;22.49
 vol_pd_as_px_d1_50_logs;pd;PX;d1;Int;logs;prismeipc_pd;1.0;0.28;27.93
 vol_pd_as_px_d1_50_logs;pd;PX;d1;Int;logs;ddc_pd;40.0;0.0;0.0
 vol_pd_as_px_d1_50_logs;pd;PX;d1;Int;logs;enquetesprix_pd;5.0;0.05;1.04
@@ -1425,7 +1425,7 @@ vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-EP-A3;80.0;63.63;79.54
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-MIGRATION-BDM2017;25.0;1.7;6.8
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-LEI-echanges-clients;50.0;0.0;0.0
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-TEO2-exploitations;25.0;23.4;93.6
-vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Donnees-de-caisses-Franprix;250.0;112.6;45.04
+vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Donnees-de-caisses-Franprix;250.0;112.7;45.08
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Voeux-ens-montpellier;25.0;15.37;61.48
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-DR-IDF-CAF;100.0;78.08;78.08
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-DR67-SED-ARS;10.0;0.21;2.14
@@ -1590,7 +1590,7 @@ vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-CONJ-ETUDE-MAINT;25.0;7.18;28.72
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-CONJ-EVTS-EXCEPT;15.0;7.18;47.87
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Donnees-de-caisses-Carrefour;2252.8;1105.92;49.09
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Opale-Calcul-de-charge;50.0;20.69;41.38
-vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Donnees-de-caisses-SystemeU;1024.0;637.4;62.25
+vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Donnees-de-caisses-SystemeU;1024.0;637.5;62.26
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-CSNS-identification;1495.04;30.54;2.04
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Etude-fidelivic;100.0;62.73;62.73
 vol_pd_aus_HAB;pd;HAB;d1;Int;aus;HAB-Donnees-de-caisses-Auchan;3000.32;1402.88;46.76
@@ -2127,7 +2127,7 @@ vol_pd_as_an_d1_00_logs;pd;AN;d1;Dmz;logs;annuaires_pd;100.0;20.72;20.72
 vol_pd_as_an_d1_00_logs;pd;AN;d1;Dmz;logs;anais_pd;5.0;0.0;0.0
 vol_pd_as_an_d1_00_logs;pd;AN;d1;Dmz;logs;contacts_pd;20.0;0.42;2.12
 vol_pd_as_an_d1_00_logs;pd;AN;d1;Dmz;logs;keycloak_pd;100.0;64.63;64.63
-vol_pd_as_an_d1_00_logs;pd;AN;d1;Dmz;logs;spoc_pd;10.0;0.94;9.38
+vol_pd_as_an_d1_00_logs;pd;AN;d1;Dmz;logs;spoc_pd;10.0;0.94;9.39
 vol_pd_as_an_d1_00_logs;pd;AN;d1;Dmz;logs;keycloak_pd2;5.0;0.0;0.0
 vol_pd_as_an_d1_00_logs;pd;AN;d1;Dmz;logs;sugoi_pd;10.0;0.4;4.04
 vol_pd_as_ap_d1_00_data;pd;AP;d1;Dmz;data;reinitmp_pd;1.0;0.0;0.0
@@ -2156,7 +2156,7 @@ vol_pd_as_df_d1_00_data;pd;DF;d1;Dmz;data;ddl_pd;20.0;11.23;56.15
 vol_pd_as_df_d1_00_logs;pd;DF;d1;Dmz;logs;ddl_pd;1.0;0.37;37.12
 vol_pd_as_df_d1_00_logs;pd;DF;d1;Dmz;logs;melodi_pd;1.0;0.1;10.43
 vol_pd_as_df_d1_00_logs;pd;DF;d1;Dmz;logs;melauto_pd;1.0;0.0;0.0
-vol_pd_as_df_d1_00_logs;pd;DF;d1;Dmz;logs;web4g_pd2;55.0;34.08;61.96
+vol_pd_as_df_d1_00_logs;pd;DF;d1;Dmz;logs;web4g_pd2;55.0;34.1;62.0
 vol_pd_as_df_d1_00_logs;pd;DF;d1;Dmz;logs;web4g_pd;1.0;0.0;0.0
 vol_pd_as_en_d1_00_data;pd;EN;d1;Dmz;data;citrus_pd;50.0;12.91;25.82
 vol_pd_as_en_d1_00_logs;pd;EN;d1;Dmz;logs;citrus_pd;10.0;0.04;0.41
@@ -2192,14 +2192,14 @@ vol_pd_as_re_d1_00_data;pd;RE;d1;Dmz;data;sirene4services_pd;10.0;3.66;36.6
 vol_pd_as_re_d1_00_data;pd;RE;d1;Dmz;data;apisirene_pd2;500.0;82.39;16.48
 vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;apisirene_pd;250.0;110.0;44.0
 vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;sirene4declaration_pd;10.0;5.68;56.8
-vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;api_manager_pd;300.0;25.52;8.51
+vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;api_manager_pd;300.0;25.53;8.51
 vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;sirus_pd;100.0;49.71;49.71
 vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;sirene4gestion_pd;5.0;0.01;0.27
-vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;syracuse_pd;20.0;8.71;43.55
+vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;syracuse_pd;20.0;8.72;43.6
 vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;sirene4_pd;300.0;99.35;33.12
 vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;lei_pd;15.0;2.72;18.13
-vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;sirene4services_pd;1.0;0.7;69.75
-vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;apisirene_pd2;250.0;98.74;39.5
+vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;sirene4services_pd;1.0;0.7;69.76
+vol_pd_as_re_d1_00_logs;pd;RE;d1;Dmz;logs;apisirene_pd2;250.0;98.75;39.5
 vol_pd_as_rh_d1_00_data;pd;RH;d1;Dmz;data;geneppi_pd;1.0;0.1;9.73
 vol_pd_as_rh_d1_00_data;pd;RH;d1;Dmz;data;trombipr_pd;1.0;0.0;0.0
 vol_pd_as_rh_d1_00_data;pd;RH;d1;Dmz;data;gmbc_pd;5.0;1.49;29.8
@@ -2260,7 +2260,7 @@ vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;rmeswnci_pd;1.0;0.0;0.0
 vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;rmesgncs_pd;1.0;0.19;19.43
 vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;rmes_pd;1.0;0.29;29.09
 vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;rmessncz_pd;1.0;0.0;0.0
-vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;coltrane_pd;40.0;32.6;81.5
+vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;coltrane_pd;40.0;32.61;81.53
 vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;rmesrdfz_pd;1.0;0.41;41.11
 vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;rmsrdfi_pd;1.0;0.0;0.0
 vol_pd_as_st_d1_00_logs;pd;ST;d1;Dmz;logs;rmeswncz_pd;5.0;3.61;72.2
@@ -2286,7 +2286,7 @@ vol_hp_as_an_d2_50_data;hp;AN;d2;Int;data;pegase_qf;1.0;0.0;0.0
 vol_hp_as_an_d2_50_logs;hp;AN;d2;Int;logs;contacts_qf;1.0;0.02;2.34
 vol_hp_as_an_d2_50_logs;hp;AN;d2;Int;logs;igesa_qf;1.0;0.0;0.0
 vol_hp_as_an_d2_50_logs;hp;AN;d2;Int;logs;sugoi_qf;10.0;1.11;11.1
-vol_hp_as_an_d2_50_logs;hp;AN;d2;Int;logs;spoc_qf;1.0;0.03;3.15
+vol_hp_as_an_d2_50_logs;hp;AN;d2;Int;logs;spoc_qf;1.0;0.03;3.17
 vol_hp_as_an_d2_50_logs;hp;AN;d2;Int;logs;keycloak_qf2;1.0;0.27;27.23
 vol_hp_as_an_d2_50_logs;hp;AN;d2;Int;logs;keycloak_qf;10.0;1.52;15.2
 vol_hp_as_an_d2_50_logs;hp;AN;d2;Int;logs;annuaires_qf;10.0;2.89;28.9
@@ -2377,7 +2377,7 @@ vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;wspegase_qf;1.0;0.0;0.0
 vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;majiba3_dv;1.0;0.03;3.04
 vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;gravitee_dv;10.0;0.07;0.68
 vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;oiseau_dv;1.0;0.0;0.0
-vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;vault_pd;50.0;7.14;14.28
+vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;vault_pd;50.0;7.17;14.34
 vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;vault_dv;1.0;0.0;0.08
 vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;pocrclone_dv;1.0;0.0;0.0
 vol_hp_as_ap_d2_50_logs;hp;AP;d2;Int;logs;rainette_dv;5.0;0.0;0.0
@@ -2472,13 +2472,13 @@ vol_hp_as_df_d2_50_data;hp;DF;d2;Int;data;ddl_qf;20.0;10.23;51.15
 vol_hp_as_df_d2_50_data;hp;DF;d2;Int;data;web4g_dv;600.0;537.6;89.6
 vol_hp_as_df_d2_50_data;hp;DF;d2;Int;data;ddl_dv2;50.0;9.08;18.16
 vol_hp_as_df_d2_50_data;hp;DF;d2;Int;data;web4g_dv2;800.0;612.1;76.51
-vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;edl_dv2;1.0;0.17;17.31
+vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;edl_dv2;1.0;0.17;17.32
 vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;wip_dv;5.0;0.01;0.11
 vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;web4g_dv;10.0;10.0;100.0
 vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;ddl_dv;1.0;0.0;0.27
 vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;ddl_qf2;1.0;0.03;3.13
 vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;ddl_qf;1.0;0.0;0.04
-vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;edl_dv;1.0;0.11;11.45
+vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;edl_dv;1.0;0.11;11.46
 vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;statweb4g_qf;1.0;0.0;0.0
 vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;ddl_dv2;50.0;0.03;0.06
 vol_hp_as_df_d2_50_logs;hp;DF;d2;Int;logs;web4g_dv2;10.0;1.99;19.9
@@ -2644,11 +2644,11 @@ vol_hp_as_ge_d2_50_data;hp;GE;d2;Int;data;geoloc_dv3;15.0;0.56;3.74
 vol_hp_as_ge_d2_50_data;hp;GE;d2;Int;data;creacartes_dv2;50.0;23.74;47.48
 vol_hp_as_ge_d2_50_data;hp;GE;d2;Int;data;creacartes_dv3;50.0;28.22;56.44
 vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;geoloc_dv;1.0;0.03;2.8
-vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;gaia_dv3;1.0;0.03;2.78
+vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;gaia_dv3;1.0;0.03;2.79
 vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;refigeo2_dv2;1.0;0.0;0.12
 vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;refigeo2_dv;1.0;0.0;0.01
 vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;gaia_dv;1.0;0.02;2.16
-vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;gaia_dv2;1.0;0.01;1.24
+vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;gaia_dv2;1.0;0.01;1.25
 vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;creacartes_dv;1.0;0.0;0.48
 vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;refigeo2_dv3;1.0;0.0;0.04
 vol_hp_as_ge_d2_50_logs;hp;GE;d2;Int;logs;geoloc_dv4;1.0;0.04;3.79
@@ -2757,7 +2757,7 @@ vol_hp_as_pl_d2_50_data;hp;PL;d2;Int;data;pilotdon_dv;1.0;0.0;0.0
 vol_hp_as_pl_d2_50_data;hp;PL;d2;Int;data;athenes_dv2;1.0;0.0;0.0
 vol_hp_as_pl_d2_50_data;hp;PL;d2;Int;data;gecocour_dv2;1.0;0.0;0.22
 vol_hp_as_pl_d2_50_data;hp;PL;d2;Int;data;gecoentr_dv2;1.0;0.07;7.41
-vol_hp_as_pl_d2_50_logs;hp;PL;d2;Int;logs;contentieux_dv;1.0;0.04;3.84
+vol_hp_as_pl_d2_50_logs;hp;PL;d2;Int;logs;contentieux_dv;1.0;0.04;3.85
 vol_hp_as_pl_d2_50_logs;hp;PL;d2;Int;logs;archimed_dv;1.0;0.0;0.05
 vol_hp_as_pl_d2_50_logs;hp;PL;d2;Int;logs;gemini_dv;1.0;0.02;1.67
 vol_hp_as_pl_d2_50_logs;hp;PL;d2;Int;logs;gecocour_dv;1.0;0.0;0.39
@@ -2872,7 +2872,7 @@ vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;sirene4_dv3;1.0;0.05;5.11
 vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;sirene_qf;30.0;1.45;4.83
 vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;apisirene_dv3;5.0;0.22;4.46
 vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;sirene4_dv;1.0;0.8;79.86
-vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;sirene4_dv2;1.0;0.35;35.05
+vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;sirene4_dv2;1.0;0.39;38.86
 vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;side_dv;1.0;0.0;0.35
 vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;sirus_dv2;15.0;0.58;3.84
 vol_hp_as_re_d2_50_logs;hp;RE;d2;Int;logs;sirene4services_dv6;1.0;0.0;0.08
@@ -3038,7 +3038,7 @@ vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;p1_dv;1.0;0.0;0.0
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;achille_dv2;1.0;0.03;2.58
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;homere_dv8;1.0;0.0;0.06
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;rorcal_dv;1.0;0.2;19.7
-vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;rca_dv;1.0;0.05;4.75
+vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;rca_dv;1.0;0.05;4.76
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;itac_dv;1.0;0.0;0.0
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;achille_dv;5.0;0.01;0.18
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;omphale_dv2;1.0;0.0;0.0
@@ -3062,7 +3062,7 @@ vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;homere_dv7;1.0;0.0;0.32
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;odic_dv3;1.0;0.0;0.0
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;rorcal_dv3;1.0;0.03;2.88
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;rca_dv2;1.0;0.01;1.35
-vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;rca_dv3;1.0;0.02;1.54
+vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;rca_dv3;1.0;0.02;1.55
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;odic_dv5;1.0;0.0;0.0
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;odic_dv6;1.0;0.0;0.0
 vol_hp_as_rp_d2_50_logs;hp;RP;d2;Int;logs;itac_dv2;1.0;0.0;0.0
@@ -3324,7 +3324,7 @@ vol_pd_as_re_d2_00_logs;pd;RE;d2;Dmz;logs;sirene4gestion_bt;1.0;0.0;0.09
 vol_pd_as_ri_d2_00_data;pd;RI;d2;Dmz;data;elire_bt;100.0;1.9;1.9
 vol_pd_as_ri_d2_00_data;pd;RI;d2;Dmz;data;brpp_bt;1.0;0.0;0.0
 vol_pd_as_ri_d2_00_data;pd;RI;d2;Dmz;data;aireppnet_bt;1.0;0.0;0.0
-vol_pd_as_ri_d2_00_logs;pd;RI;d2;Dmz;logs;elire_bt;1.0;0.52;52.44
+vol_pd_as_ri_d2_00_logs;pd;RI;d2;Dmz;logs;elire_bt;1.0;0.52;52.5
 vol_pd_as_ri_d2_00_logs;pd;RI;d2;Dmz;logs;brpp_bt;1.0;0.21;21.41
 vol_pd_as_ri_d2_00_logs;pd;RI;d2;Dmz;logs;aireppnet_bt;1.0;0.02;2.16
 vol_pd_as_rp_d2_00_data;pd;RP;d2;Dmz;data;rca_fo;5.0;0.0;0.0
