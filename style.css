@@ -1,0 +1,64 @@
+
+body {
+    background-image: linear-gradient(45deg, black, grey);
+    /* background-image: linear-gradient(45deg, red, green); */
+}
+
+p {
+    font-family: 'sf-slapstick-comic','BoyzRGrossShadowNF', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin: 15px;
+    font-size:20px;
+    font-style: italic;
+    font-weight: bold;
+    color:#0ee0d2;
+}
+
+/* ********************************** */
+/* ********************************** */
+
+form {
+    position:relative;
+    margin-left : 30px;
+    background-color: white;
+    padding:10px;
+    /* width:max-content; */
+    width:510px;
+    border-radius: 5px;
+    border : 2px solid black;
+    box-shadow: 10px 10px 2px 1px rgba(40, 40, 170, 0.4);
+}
+
+/* ********************************** */
+/* ********************************** */
+
+table {
+    /* margin-left: 30px; */
+    /* margin: 0 10 0 10; */
+    border-spacing: 1px;
+    width: 98%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    box-shadow: 10px 10px 2px 1px rgba(40, 40, 170, 0.4);
+}
+
+th {
+    cursor: pointer;
+    padding: 5px;
+    color:white;
+    font-weight: bold;
+    background-color: #088880;
+}
+
+td {
+    text-align: left;
+    padding: 1px;
+    border-spacing: 5px;
+    border: 1px solid white;
+    white-space: nowrap;
+}
+
+tr:nth-child(even) { background-color: #ececec; }
+
+tr:nth-child(odd)  { background-color: white; }

@@ -1,0 +1,18 @@
+cd "C:\Users\ycg8l6\X_AS_X_IDDA\language Python\TESTS\Parse_BeautifulSoup"
+
+python -m venv venv
+
+venv\Scripts\activate.bat
+
+pip install requests
+pip install bs4
+pip install beautifulsoup4
+pip install lxml
+pip install pandas
+pip install pycurl
+pip install tabulate
+pip install display
+pip install ipython
+
+#pour lister les différents modules installés
+pip list

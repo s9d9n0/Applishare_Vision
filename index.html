@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppliShare</title>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+    <div class="entete">
+        <p>Vision des niveaux de consommation VV d'AppliShare</p>
+    </div>
+
+    <form name="my-form" action="">
+        <label>Veuillez choisir un quartier :</label>
+        <select id="quartier" name="quartier">
+            <option value="" selected>Selection...</option>
+            <option value="AN">AN - Annuaires</option>
+            <option value="AP">AP - Services aux applications</option>
+            <option value="CN">CN - Comptabilité nationale</option>
+            <option value="CJ">CJ - Conjoncture</option>
+            <option value="DF">DF - Diffusion et études</option>
+            <option value="EN">EN - Statistique d'entreprise</option>
+            <option value="EP">EP - Statistique sur l'emploi</option>
+            <option value="GE">GE - Géographie</option>
+            <option value="IF">IF - Infrastructure</option>
+            <option value="MN">MN - Statistique sur les ménages</option>
+            <option value="PL">PL - Pilotage et appui</option>
+            <option value="PX">PX - Prix</option>
+            <option value="RE">RE - Répertoire d'entreprises</option>
+            <option value="RH">RH - Ressources humaines</option>
+            <option value="RI">RI - Répertoire d'individus</option>
+            <option value="RP">RP - Recensement de la population</option>
+            <option value="ST">ST - Services statistiques</option>
+            <option value="UT">UT - Services aux utilisateurs</option>
+        </select>
+      
+        <br />
+    </form>
+
+    <div style="transform:translateX(50px);" id="choixQuartier">ESSAI</div>
+
+    <hr>
+
+    <table id="MaTable">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="./fonction_CreaTable.js"></script>
+
+    <script>
+
+        const fetchData = () => {
+            return new Promise((resolve, reject) => (
+                fetch("./json/df_listVV.json")
+                    .then(res => res.json())
+                    .then(data => resolve(data))
+                    .catch(err => reject(err))
+            ))
+        }
+
+        async function getData() {
+            const data = await fetchData()
+            console.log(data);
+            console.log(typeof(data));
+            console.log(data[0]);
+
+            let choixQuartier = document.getElementById("choixQuartier").innerText;
+            console.log("le quartier choisi est égal à :"+choixQuartier);
+
+            let dataVV = data;
+            console.log(dataVV);
+            console.log(typeof(dataVV));
+            console.log(dataVV[0]);
+            console.log("longueur : "+Object.keys(dataVV).length);
+            dataVV = dataVV.filter(dat => (dat.quartier == choixQuartier));
+
+            getTableHead();
+            getTableBody(dataVV);
+        }
+
+        //getData()
+
+        /////////////////////////////////////////////
+
+        let form = document.forms['my-form'];
+
+        let quartier = form.quartier;
+        let modaliteQuartier = form.quartier.options;
+        console.log(quartier);
+        console.log(modaliteQuartier);
+
+        quartier.required = true;
+
+        let optionText = "";
+
+        quartier.onchange = function() {
+            let optionValue = this.value;
+            //console.log(optionValue);
+            // let index = this.selectedIndex;
+            // optionText = this.options[index].innerText;
+            // console.log(optionText," en index n° ", index)
+            optionText = this[this.selectedIndex].value;
+
+            let choixQuartier = document.getElementById("choixQuartier");
+            choixQuartier.innerText = optionText;
+
+            //console.log("optionText : " + optionText);
+            //return optionText;
+            getData();
+        }
+
+        choixQuartier = quartier.onchange();
+        console.log("choice quartier est egal a :"+choixQuartier);
+
+    </script>
+
+    <script src="./fonction_TriTable.js"></script>
+
+</body>
+</html>
+
+
