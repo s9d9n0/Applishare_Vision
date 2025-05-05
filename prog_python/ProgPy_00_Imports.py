@@ -80,22 +80,22 @@ def separVolUnite(df : pd.DataFrame) -> pd.DataFrame:
 def transfoUnite(df : pd.DataFrame) -> pd.DataFrame:
     for lg in range(len(df)):
         if df.loc[lg,'CapUnite']=="TB":
-            df.loc[lg,'Cap'] = float(df.loc[lg,'Cap']) * 1024
+            df.loc[lg,'Cap'] = float(df.loc[lg,'Cap']) * 1000
         if df.loc[lg,'CapUnite']=="GB":
             df.loc[lg,'Cap'] = float(df.loc[lg,'Cap']) * 1  
         if df.loc[lg,'CapUnite']=="MB":
-            df.loc[lg,'Cap'] = round(float(df.loc[lg,'Cap']) / 1024, 6)
+            df.loc[lg,'Cap'] = round(float(df.loc[lg,'Cap']) / 1000, 6)
 
         if df.loc[lg,'UseUnite']=="TB":
-            df.loc[lg,'Use'] = float(df.loc[lg,'Use']) * 1024
+            df.loc[lg,'Use'] = float(df.loc[lg,'Use']) * 1000
         if df.loc[lg,'UseUnite']=="GB":
             df.loc[lg,'Use'] = float(df.loc[lg,'Use']) * 1  
         if df.loc[lg,'UseUnite']=="MB":
-            df.loc[lg,'Use'] = round(float(df.loc[lg,'Use']) / 1024, 6)
+            df.loc[lg,'Use'] = round(float(df.loc[lg,'Use']) / 1000, 6)
         if df.loc[lg,'UseUnite']=="KB":
-            df.loc[lg,'Use'] = round((float(df.loc[lg,'Use']) / 1024 ) / 1024, 6)
+            df.loc[lg,'Use'] = round(float(df.loc[lg,'Use']) / 1000**2, 6)
         if df.loc[lg,'UseUnite']=="B":
-            df.loc[lg,'Use'] = round(((float(df.loc[lg,'Use']) / 1024 ) / 1024 ) / 1024, 6)
+            df.loc[lg,'Use'] = round(float(df.loc[lg,'Use']) / 1000**3, 6)
 
 
 def pourcentage(line,Num,Denom):

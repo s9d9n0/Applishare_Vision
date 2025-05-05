@@ -2,5 +2,13 @@ venv/
 __pycache__/
 prog_python/__pycache__/
 prog_python/tempCodeRunnerFile.py
-dataframe/
-site/json/
+dataframe/df_fusion.csv
+dataframe/df_listFS_A.csv
+dataframe/df_listFS_B.csv
+dataframe/df_listFS_C.csv
+dataframe/df_listURL.csv
+dataframe/df_listVV.csv
+dataframe/df_Oscar.csv
+site/json/df_fusion.json
+site/json/df_listFS.json
+site/json/df_listVV.json
