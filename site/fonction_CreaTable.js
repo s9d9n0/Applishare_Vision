@@ -4,13 +4,12 @@ function getTableHead() {
     const thead = document.querySelector('thead');
     tags  = `<tr>
                 <th id="colVolume">
-                    <a style="text-align:left;" onclick="sortTable(0)">Volume&nbsp;</a>
-                    <a style="text-align:right;"><input type="text" id="volume" placeholder="recherche..." title="recherche sur volume"
+                    <a onclick="sortTable(0)">Volume&nbsp;</a>
+                    <a><input type="text" id="volume" placeholder="recherche..." title="rech sur volume"
                             onfocusin="focusInColonne('volume')" onfocusout="focusOutColonne('volume')" 
                             onkeyup="filtreColonne('volume',0)">
                     </a>
-                    </br>
-                    <div id="fleche">
+                    <div class="fleche">
                         <a>&#x25b4;Up&nbsp;</a>
                         <a>&nbsp;Down&#x25be;</a>
                     </div>
@@ -21,14 +20,19 @@ function getTableHead() {
                 <th onclick="sortTable(4)">Zone</th>
                 <th onclick="sortTable(5)">Type</th>
                 <th id="colApplication">
-                    <a onclick="sortTable(6)">Application&nbsp;</a>
-                    <input type="text" id="application" placeholder="recherche..." title="recherche sur application"
+                    <a onclick="sortESSAI_Table(6)">Application&nbsp;</a>
+                    <a><input type="text" id="application" placeholder="recherche..." title="rech sur application"
                             onfocusin="focusInColonne('application')" onfocusout="focusOutColonne('application')" 
                             onkeyup="filtreColonne('application',6)">
+                    </a>
+                    <div class="fleche">
+                        <a>&#x25b4;Up&nbsp;</a>
+                        <a>&nbsp;Down&#x25be;</a>
+                    </div>
                 </th>
-                <th onclick="sortTable(7)">Quota VV (en GB)</th>
-                <th onclick="sortTable(8)">Niv. d'utilisation (en GB)</th>
-                <th onclick="sortTable(9)">Niv. d'utilisation (en %)</th>
+                <th onclick="sortTable(7)">Quota VV </br> (en GB)</th>
+                <th onclick="sortTable(8)">Niv. d'utilisation </br> (en GB)</th>
+                <th onclick="sortTable(9)">Niv. d'utilisation </br> (en %)</th>
              </tr>`
     thead.innerHTML = tags;
 }

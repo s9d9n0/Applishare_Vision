@@ -26,11 +26,11 @@ function focusInColonne(id) {
     // if (id=="hote"){lien='Hote';}
     // if (id=="service"){lien='Service';}
     let entete = document.getElementById(lien);
-    // entete.style.transitionDuration = "0.1s";
+    entete.style.transitionDuration = "0.1s";
     entete.style.background = '#055550';
-    // entete.style.borderRadius = "10px";
-    // entete.style.scale = 1.1;
-    entete.style.zIndex = 3;
+    entete.style.borderRadius = "10px";
+    entete.style.scale = 1.05;
+    // entete.style.zIndex = 3;
 }
 
 
@@ -41,9 +41,10 @@ function focusOutColonne(id) {
     // if (id=="hote"){lien='Hote';}
     // if (id=="service"){lien='Service';}
     let entete = document.getElementById(lien);
-    // entete.style.transitionDuration = "0.1s";
+    entete.style.transitionDuration = "0.1s";
     entete.style.background = '#088880';
+    entete.style.borderRadius = "0px";
     // entete.style.borderRadius = "0px";
-    // entete.style.scale = 1;
-    entete.style.zIndex = 2;
+    entete.style.scale = 1;
+    // entete.style.zIndex = 2;
 }

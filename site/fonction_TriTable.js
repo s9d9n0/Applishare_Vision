@@ -76,6 +76,20 @@ function sortTable(n) {
 }
 
 
+function sortESSAI_Table(n) {
+    table = document.getElementById('MaTable');
+    console.log("ligne :"+table.rows[0]);
+
+    rows = table.rows;
+    console.log("nb ligne :"+rows.length);
+    for (i = 1; i < rows.length; i++) {
+        x = rows[i].getElementsByTagName("td")[n];
+        console.log("x : "+x.innerHTML);
+    }
+
+
+}
+
 // Algorithme QuickSort
 function sort2Table(n) {
     let table, rows;
