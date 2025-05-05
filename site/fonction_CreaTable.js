@@ -1,17 +1,35 @@
+// style="width: 100px;"
+
 function getTableHead() {
     const thead = document.querySelector('thead');
     tags  = `<tr>
-                <th onclick="sortTable(0)">Volume</td>
+                <th id="colVolume">
+                    <a style="text-align:left;" onclick="sortTable(0)">Volume&nbsp;</a>
+                    <a style="text-align:right;"><input type="text" id="volume" placeholder="recherche..." title="recherche sur volume"
+                            onfocusin="focusInColonne('volume')" onfocusout="focusOutColonne('volume')" 
+                            onkeyup="filtreColonne('volume',0)">
+                    </a>
+                    </br>
+                    <div id="fleche">
+                        <a>&#x25b4;Up&nbsp;</a>
+                        <a>&nbsp;Down&#x25be;</a>
+                    </div>
+                </th>
                 <th onclick="sortTable(1)">Env.</th>
                 <th onclick="sortTable(2)">Quartier</th>
                 <th onclick="sortTable(3)">DC</th>
                 <th onclick="sortTable(4)">Zone</th>
                 <th onclick="sortTable(5)">Type</th>
-                <th onclick="sortTable(6)">Application</th>
+                <th id="colApplication">
+                    <a onclick="sortTable(6)">Application&nbsp;</a>
+                    <input type="text" id="application" placeholder="recherche..." title="recherche sur application"
+                            onfocusin="focusInColonne('application')" onfocusout="focusOutColonne('application')" 
+                            onkeyup="filtreColonne('application',6)">
+                </th>
                 <th onclick="sortTable(7)">Quota VV (en GB)</th>
                 <th onclick="sortTable(8)">Niv. d'utilisation (en GB)</th>
                 <th onclick="sortTable(9)">Niv. d'utilisation (en %)</th>
-            </tr>`
+             </tr>`
     thead.innerHTML = tags;
 }
 
@@ -36,11 +54,10 @@ function getTableHead() {
 //     tbody.innerHTML = tags;
 // }
 
-
 function getTableBody(DataRef){
     const tbody = document.querySelector('tbody');
     let tags = "";
-    DataRef.map(d =>{
+    DataRef.map((d,index) =>{
         tags += `<tr>
             <td style="text-align:center;">${d.Volume}</td>
             <td style="text-align:center;">${d.env}</td>
@@ -51,30 +68,32 @@ function getTableBody(DataRef){
             <td>${d.Application}</td>
             <td>${parseFloat(d.Cap)}</td>
             <td>${parseFloat(d.Use)}</td>`
+
             if (d['Use%']<30){
                 tags += `<td style="background-image: linear-gradient(to right, #00FF00 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=30 & d['Use%']<40){
+            if (d['Use%']>=30 && d['Use%']<40){
                 tags += `<td style="background-image: linear-gradient(to right, #20F900 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=40 & d['Use%']<50){
+            if (d['Use%']>=40 && d['Use%']<50){
                 tags += `<td style="background-image: linear-gradient(to right, #40F300 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=50 & d['Use%']<60){
+            if (d['Use%']>=50 && d['Use%']<60){
                 tags += `<td style="background-image: linear-gradient(to right, #80E600 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=60 & d['Use%']<70){
+            if (d['Use%']>=60 && d['Use%']<70){
                 tags += `<td style="background-image: linear-gradient(to right, #C0D900 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=70 & d['Use%']<80){
+            if (d['Use%']>=70 && d['Use%']<80){
                 tags += `<td style="background-image: linear-gradient(to right, #E0D300 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=80 & d['Use%']<90){
+            if (d['Use%']>=80 && d['Use%']<90){
                 tags += `<td style="background-image: linear-gradient(to right, #F0D000 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=90 & d['Use%']<92){
+            if (d['Use%']>=90 && d['Use%']<92){
                 tags += `<td style="background-image: linear-gradient(to right, #FFCC00 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=92 & d['Use%']<94){
+            if (d['Use%']>=92 && d['Use%']<94){
                 tags += `<td style="background-image: linear-gradient(to right, #FF9F00 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=94 & d['Use%']<96){
+            if (d['Use%']>=94 && d['Use%']<96){
                 tags += `<td style="background-image: linear-gradient(to right, #FF7100 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
-            else if (d['Use%']>=96 & d['Use%']<98){
-                tags += `<td style="background-image: linear-gradient(to right, #FF4300 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`} 
-            else if (d['Use%']>=98){
+            if (d['Use%']>=96 && d['Use%']<98){
+                tags += `<td style="background-image: linear-gradient(to right, #FF4300 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
+            if (d['Use%']>=98){
                 tags += `<td style="background-image: linear-gradient(to right, #FF1500 ${d['Use%']}%, #FFFFFF ${d['Use%']}%);">${d['Use%']}</td>`}
+
         tags += `</tr>`
     })
     tbody.innerHTML = tags;

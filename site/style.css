@@ -23,10 +23,11 @@ body {
     border-radius: 5px;
 }
 
+
 p {
     font-family: 'sf-slapstick-comic','BoyzRGrossShadowNF', Arial, Helvetica, sans-serif;
-    padding: 10px;
-    margin: 15px;
+    padding: 15px;
+    margin: 10px;
     font-size:30px;
     font-style: italic;
     font-weight: bold;
@@ -64,8 +65,8 @@ form {
 /* ********************************** */
 
 table {
-    /* margin-left: 30px; */
-    /* margin: 0 10 0 10; */
+    margin-top: 10px;
+    /* margin: 50 10 50 10; */
     border-spacing: 1px;
     width: 98%;
     padding: 10px;
@@ -81,8 +82,23 @@ thead tr {
     top:150px;
 }
 
+th#colVolume, th#colApplication {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+
+#fleche {
+    /* margin: 0;
+    padding: 0; */
+    /* font-size: 15px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+
 th {
-    cursor: pointer;
+    /* cursor: pointer; */
     padding: 5px;
     color:white;
     font-weight: bold;
