@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'sf-slapstick-comic';
-    src: url(./sf-slapstick-comic/SFSlapstickComic-Bold.ttf);
+    src: url(./font_sf-slapstick-comic/SFSlapstickComic-Bold.ttf);
 }
 
 @font-face {
     font-family: 'BoyzRGrossShadowNF';
-    src: url(./boyzrgross/BoyzRGrossShadowNF.ttf);
+    src: url(./font_boyzrgross/BoyzRGrossShadowNF.ttf);
 }
 
 
