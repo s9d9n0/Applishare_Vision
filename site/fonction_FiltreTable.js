@@ -14,7 +14,7 @@ function filtreColonne(id,numcol) {
         } else {
           tr[i].style.display = "none";
         }
-      }       
+      }
     }
 }
 

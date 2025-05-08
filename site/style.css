@@ -63,7 +63,7 @@ form {
 .pinDroite {
     position:absolute;
     top:-20px;
-    left:510px;
+    left:480px;
 }
 
 /* ********************************** */
@@ -104,7 +104,7 @@ th#colVolume, th#colApplication {
 }
 
 th {
-    /* cursor: pointer; */
+    cursor: pointer;
     padding: 5px;
     color:white;
     font-weight: bold;
@@ -122,3 +122,8 @@ td {
 tr:nth-child(even) { background-color: #ececec; }
 
 tr:nth-child(odd)  { background-color: white; }
+
+tr:hover {
+    font-size:17px;
+    font-weight: bold;
+}
