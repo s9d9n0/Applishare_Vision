@@ -27,7 +27,7 @@ df_VV_groupVol['SomUseVV'] = round(df_VV_groupVol['SomUseVV'],2)
 df_listFS = pd.read_csv("../dataframe/df_listFS_C.csv",sep=";")
 df_listFS = df_listFS.drop(columns=['URL_light']) # colonne inutile en amont de la fusion
 
-df_fusion = pd.merge(df_listFS,df_VV_groupVol, on="Volume", how="left")
+df_fusion = pd.merge(df_listFS,df_VV_groupVol, on="Volume", how="right")
 df_fusion = df_fusion.reset_index()
 
 df_fusion = df_fusion.drop(columns=['level_0','index'])
