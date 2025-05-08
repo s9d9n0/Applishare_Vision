@@ -4,11 +4,13 @@ function getTableHead() {
     const thead = document.querySelector('thead');
     tags  = `<tr>
                 <th id="colVolume">
-                    <a onclick="sortTable(0)">Volume&nbsp;</a>
-                    <a><input type="text" id="volume" placeholder="recherche..." title="rech sur volume"
-                            onfocusin="focusInColonne('volume')" onfocusout="focusOutColonne('volume')" 
+                    <div onclick="sortTable(0)">Volume&nbsp;</div>
+                    <div><input type="text" id="volume" 
+                            placeholder="recherche..." title="rech sur volume"
+                            onfocusin="focusInColonne('volume')"
+                            onfocusout="focusOutColonne('volume')" 
                             onkeyup="filtreColonne('volume',0)">
-                    </a>
+                    </div>
                     <div class="fleche">
                         <a>&#x25b4;Up&nbsp;</a>
                         <a>&nbsp;Down&#x25be;</a>
@@ -20,11 +22,13 @@ function getTableHead() {
                 <th onclick="sortTable(4)">Zone</th>
                 <th onclick="sortTable(5)">Type</th>
                 <th id="colApplication">
-                    <a onclick="sortESSAI_Table(6)">Application&nbsp;</a>
-                    <a><input type="text" id="application" placeholder="recherche..." title="rech sur application"
-                            onfocusin="focusInColonne('application')" onfocusout="focusOutColonne('application')" 
+                    <div onclick="sortESSAI_Table(6)">Application&nbsp;</div>
+                    <div><input type="text" id="application"
+                            placeholder="recherche..." title="rech sur application"
+                            onfocusin="focusInColonne('application')"
+                            onfocusout="focusOutColonne('application')" 
                             onkeyup="filtreColonne('application',6)">
-                    </a>
+                    </div>
                     <div class="fleche">
                         <a>&#x25b4;Up&nbsp;</a>
                         <a>&nbsp;Down&#x25be;</a>
