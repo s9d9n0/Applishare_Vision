@@ -54,8 +54,8 @@ print("********************")
 print("FIN BOUCLE NIVEAU VV")
 print("********************")
 
-from IPython.display import display
-from tabulate import tabulate
+# from IPython.display import display
+# from tabulate import tabulate
 
 print()
 print("nbre de Dataframes obtenus : " + str(len(listing_df_partVV)))
@@ -65,7 +65,7 @@ print("nbre de Dataframes obtenus : " + str(len(listing_df_partVV)))
 # print(type(listing_df_partVV[0].columns))
 # print(listing_df_partVV[0].columns)
 
-display(listing_df_partVV[0])
+# display(listing_df_partVV[0])
 # print(tabulate(listing_df_partVV[0], headers = list(listing_df_partVV[0].columns) , tablefmt = 'psql'))
 print()
 # print(listing_df_partVV[1])
