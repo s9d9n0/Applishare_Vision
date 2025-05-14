@@ -6,6 +6,11 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 
+
+import warnings
+warnings.filterwarnings('ignore')
+
+
 ##################################################################################
 # définition du répertoire de travail courant
 cheminWork = os.path.dirname(os.path.abspath(__file__))

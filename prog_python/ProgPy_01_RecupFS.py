@@ -8,7 +8,7 @@ pd.set_option('display.max_colwidth', 50)
 
 ##################################################################################
 
-response = imp.requests.get(URL)
+response = imp.requests.get(URL, verify=False, timeout=10)
 # print(type(response))
 # print(response)
 page_index = response.content
