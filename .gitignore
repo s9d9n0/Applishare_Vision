@@ -2,5 +2,6 @@ venv/
 __pycache__/
 prog_python/__pycache__/
 prog_python/tempCodeRunnerFile.py
+dataframe/*.csv
 dataframe/historique/*.csv
 site/json/*.json
