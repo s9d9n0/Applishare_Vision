@@ -42,7 +42,6 @@ dateJour_Json = '[{"dateJour": "'+dateJour+'"}]'
 with open(cheminWork2+"/site/json/dateJour.json", "w") as outfile:
     outfile.write(dateJour_Json)
 
-
 print()
 print("...Création des fichiers Json")
 
