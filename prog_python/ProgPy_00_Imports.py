@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
+import datetime
 
 
 import warnings
@@ -105,3 +106,9 @@ def transfoUnite(df : pd.DataFrame) -> pd.DataFrame:
 
 def pourcentage(line,Num,Denom):
     return round(float(line[Num]) / float(line[Denom]) * 100,2)
+
+
+dateJour = datetime.datetime.now()
+dateJour = dateJour.strftime("%Y-%m-%d_%Hh%Mm")
+# print(type(dateJour))
+print(dateJour)

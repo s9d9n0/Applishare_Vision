@@ -1,6 +1,7 @@
 ##################################################################################
 # import des divers modules utiles
 import ProgPy_00_Imports as imp
+from ProgPy_00_Imports import dateJour
 
 import pandas as pd
 pd.set_option('display.max_colwidth', 50)
@@ -50,7 +51,8 @@ for i in range(len(df_listURL)):
     df_partVV.reset_index(drop=True, inplace=True)
 
     listing_df_partVV.append(df_partVV)
-print()  
+
+# print()  
 # print("********************")
 # print("FIN BOUCLE NIVEAU VV")
 # print("********************")
@@ -58,7 +60,6 @@ print()
 # from IPython.display import display
 # from tabulate import tabulate
 
-print()
 print("nbre de Dataframes obtenus : " + str(len(listing_df_partVV)))
 # print(listing_df_partVV[0])
 # print()
@@ -126,6 +127,9 @@ df_VV['Use'] = round(df_VV['Use'],2)
 imp.creaVar(df_VV)
 df_VV = df_VV[['Volume','env','quartier','dc','zone','type','Application','Cap','Use','Use%']]
 
+# tri selon plusieurs colonnes
+df_VV = df_VV.sort_values(by=['env','quartier','dc','zone','type','Application'], 
+                          ascending=[True,True,True,True,True,True])
 
 print("IMPRESSION TABLE DES VV :")
 print(df_VV)
@@ -135,3 +139,12 @@ print(df_VV)
 df_VV.to_csv('../dataframe/df_listVV.csv', sep=';', index=False)
 df_VV = pd.read_csv("../dataframe/df_listVV.csv",sep=";")
 ##########################
+
+
+##########################*
+df_VV_historique = df_VV.drop(columns=['Volume'])
+# sauvegarde historique
+df_VV_historique.to_csv("../dataframe/historique/df_listVV_"+dateJour+".csv", sep=';', index=False)
+df_VV_historique = pd.read_csv("../dataframe/historique/df_listVV_"+dateJour+".csv",sep=";")
+##########################
+

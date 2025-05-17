@@ -1,7 +1,7 @@
 
 ##################################################################################
 # import des divers modules utiles
-from ProgPy_00_Imports import cheminWork
+from ProgPy_00_Imports import cheminWork, dateJour
 
 from shutil import rmtree
 from os import mkdir,getcwd
@@ -36,5 +36,13 @@ json_df_fusion = read_csv(cheminWork2+"/dataframe/df_fusion.csv",sep=";").to_jso
 with open(cheminWork2+"/site/json/df_fusion.json", "w") as outfile:
     outfile.write(json_df_fusion)
 
+
+dateJour_Json = '[{"dateJour": "'+dateJour+'"}]'
+# print(dateJour)
+with open(cheminWork2+"/site/json/dateJour.json", "w") as outfile:
+    outfile.write(dateJour_Json)
+
+
 print()
 print("...Création des fichiers Json")
+

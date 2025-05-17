@@ -1,7 +1,7 @@
 ##################################################################################
 # import des divers modules utiles
 import ProgPy_00_Imports as imp
-from ProgPy_00_Imports import URL
+from ProgPy_00_Imports import URL, dateJour
 
 import pandas as pd
 pd.set_option('display.max_colwidth', 50)
@@ -140,14 +140,36 @@ print()
 df_listFS = df_listFS[['URL_light','Volume','env','quartier','dc','zone','type','Cap','Use','Use%']]
 df_listFS.rename(columns={'Cap': 'CapFS', 'Use': 'UseFS'}, inplace=True)
 
+# retrait des lignes de type test | aus puis tri selon plusieurs colonnes
+df_listFS = df_listFS[~df_listFS['Volume'].str.contains("test")]
+df_listFS = df_listFS[~df_listFS['Volume'].str.contains("aus_COM|aus_DEP|aus_ECH|" \
+                                                        "aus_ESP_U|aus_ESP_Z|" \
+                                                        "aus_GEN|aus_HAB|aus_POL|" \
+                                                        "aus_RFS|aus_VER")]
+df_listFS.reset_index(drop=True, inplace=True)
+
+df_listFS = df_listFS.sort_values(by=['env','quartier','dc','zone','type'], 
+                                  ascending=[True,True,True,True,True])
+
 ##################################################################################
 ##################################################################################
 # sauvegarde intermédiaire PARTIE C
-df_listFS.to_csv('../dataframe/df_listFS_C.csv', sep=';', index=False)
+df_listFS.to_csv("../dataframe/df_listFS_C.csv", sep=';', index=False)
 df_listFS = pd.read_csv("../dataframe/df_listFS_C.csv",sep=";")
 ##################################################################################
 ##################################################################################
 
+
+##################################################################################
+##################################################################################
+df_listFS_historique = df_listFS.drop(columns=['URL_light','Volume'])
+# sauvegarde historique
+df_listFS_historique.to_csv("../dataframe/historique/df_listFS_"+dateJour+".csv", sep=';', index=False)
+df_listFS_historique = pd.read_csv("../dataframe/historique/df_listFS_"+dateJour+".csv",sep=";")
+##################################################################################
+##################################################################################
+
+# BROUILLON...
 # pour trier selon un ordre selon plusieurs colonnes...
 # df_listFS = df_listFS.sort_values(by=['quartier','dc','zone'], ascending=[True,True,False])
 

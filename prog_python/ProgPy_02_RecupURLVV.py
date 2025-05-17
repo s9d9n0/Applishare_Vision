@@ -25,8 +25,11 @@ for lg in range(len(df_listURL)):
 # print(df_listURL.loc[2:5,'URL_heavy'])
 
 #retrait des lignes contenant certains mots test, aus_ESP_U, aus_ESP_Z, ...
-df_listURL = df_listURL[~df_listURL['Volume'].str.contains("aus_DEP|aus_ECH|aus_ESP_U|aus_ESP_Z|aus_HAB|aus_POL|aus_VER")]
-df_listURL.reset_index(drop=True, inplace=True)
+# df_listURL = df_listURL[~df_listURL['Volume'].str.contains("aus_COM|aus_DEP|aus_ECH|" \
+#                                                            "aus_ESP_U|aus_ESP_Z|" \
+#                                                            "aus_GEN|aus_HAB|aus_POL|" \
+#                                                            "aus_RFS|aus_VER")]
+# df_listURL.reset_index(drop=True, inplace=True)
 # print(df_listURL)
 
 # suppression des colonnes devenues inutiles et reordonnancement

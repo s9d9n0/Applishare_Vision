@@ -19,6 +19,8 @@
             <img class="pinDroite" src="./img/pngimg_pin_PNG80_xs.png" alt="image pin"/>
             <div id="dateRef"></div>
 
+            </br>
+
             <label>Veuillez choisir un quartier :</label>
             <select id="quartier" name="quartier">
                 <option value="" selected>Selection...</option>
@@ -61,15 +63,23 @@
 
     <script>
 
-        const today = new Date();
-        const month = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin',
-                        'juillet', 'août','septembre', 'octobre', 'novembre', 'decembre'];
-        let todayFormat =
-            today.getDate() + ' ' + month[today.getMonth()] + ' ' + today.getFullYear();
-        console.log(todayFormat);
-        let champDate = document.getElementById("dateRef");
-        champDate.innerText = todayFormat;
+        // const today = new Date();
+        // const month = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin',
+        //                 'juillet', 'août','septembre', 'octobre', 'novembre', 'decembre'];
+        // let todayFormat =
+        //     today.getDate() + ' ' + month[today.getMonth()] + ' ' + today.getFullYear();
+        // console.log(todayFormat);
+        // let champDate = document.getElementById("dateRef");
+        // champDate.innerText = todayFormat;
 
+        const fetchPeriodeRef = () => {
+            return new Promise((resolve, reject) => (
+                fetch("./json/dateJour.json")
+                    .then(res => res.json())
+                    .then(data => resolve(data))
+                    .catch(err => reject(err))
+            ))
+        }
 
         const fetchData = () => {
             return new Promise((resolve, reject) => (
@@ -81,10 +91,40 @@
         }
 
         async function getData() {
+
+            const periodeRef = await fetchPeriodeRef()
+            console.log("date de réf : "+periodeRef[0]["dateJour"]);
+            console.log(typeof periodeRef);
+            console.log(typeof periodeRef[0]["dateJour"]);
+
+            const dateAnStr = periodeRef[0]["dateJour"].substring(0,4)
+            const dateMoisStr = periodeRef[0]["dateJour"].substring(5,7)
+            const dateJourStr = periodeRef[0]["dateJour"].substring(8,10)
+            const dateHeurStr = periodeRef[0]["dateJour"].substring(11,14)
+            switch (dateMoisStr) {
+                case "01": MoisRef = "janvier"; break;
+                case "02": MoisRef = "février"; break;
+                case "03": MoisRef = "mars"; break;
+                case "04": MoisRef = "avril"; break;
+                case "05": MoisRef = "mai"; break;
+                case "06": MoisRef = "juin"; break;
+                case "07": MoisRef = "juillet"; break;
+                case "08": MoisRef = "août"; break;
+                case "09": MoisRef = "setembre"; break;
+                case "10": MoisRef = "octobre"; break;
+                case "11": MoisRef = "novmebre"; break;
+                case "12": MoisRef = "décembre"; break;
+            }
+
+            let champDate = document.getElementById("dateRef");
+            champDate.innerText = "date de référence : le "+dateJourStr+" "+MoisRef+" "+dateAnStr+" - "+dateHeurStr;
+
+
             const data = await fetchData()
             console.log(data);
             console.log(typeof(data));
             console.log(data[0]);
+
 
             let choixQuartier = document.getElementById("choixQuartier").innerText;
             console.log("le quartier choisi est égal à :"+choixQuartier);
@@ -132,7 +172,7 @@
         }
 
         choixQuartier = quartier.onchange();
-        console.log("choice quartier est egal a :"+choixQuartier);
+        console.log("choice quartier est egal a : "+choixQuartier[0]["quartier"]);
 
     </script>
 
