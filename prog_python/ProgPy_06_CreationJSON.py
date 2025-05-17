@@ -24,10 +24,12 @@ json_df_listFS = read_csv(cheminWork2+"/dataframe/df_listFS_C.csv",sep=";").to_j
 with open(cheminWork2+"/site/json/df_listFS.json", "w") as outfile:
     outfile.write(json_df_listFS)
 
+
 json_df_listVV = read_csv(cheminWork2+"/dataframe/df_listVV.csv",sep=";")[:].to_json(orient="records")
 # print(json_df_listVV)
 with open(cheminWork2+"/site/json/df_listVV.json", "w") as outfile:
     outfile.write(json_df_listVV)
+
 
 json_df_fusion = read_csv(cheminWork2+"/dataframe/df_fusion.csv",sep=";").to_json(orient="records")
 # print(json_df_fusion)

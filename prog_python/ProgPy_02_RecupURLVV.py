@@ -18,12 +18,13 @@ df_listURL['URL_light'] = df_listURL['URL_light'].str.replace('&amp;','&',regex=
 
 # modification ligne après ligne pour création chemin URL des pages VV
 for lg in range(len(df_listURL)):
-    df_listURL.loc[lg,'URL_heavy'] = URL + '?' + df_listURL.loc[lg,'URL_light'] + '&qtree=' + df_listURL.loc[lg,'Volume']
+    df_listURL.loc[lg,'URL_heavy'] = URL + '?' + \
+                                     df_listURL.loc[lg,'URL_light'] + '&qtree=' + \
+                                     df_listURL.loc[lg,'Volume']
 
 # print(df_listURL.loc[2:5,'URL_heavy'])
 
 #retrait des lignes contenant certains mots test, aus_ESP_U, aus_ESP_Z, ...
-# df_listURL = df_listURL[~df_listURL['Volume'].str.contains("aus_DEP|aus_ECH|aus_ESP_U|aus_ESP_Z|aus_HAB|aus_POL|aus_VER")]
 df_listURL = df_listURL[~df_listURL['Volume'].str.contains("aus_DEP|aus_ECH|aus_ESP_U|aus_ESP_Z|aus_HAB|aus_POL|aus_VER")]
 df_listURL.reset_index(drop=True, inplace=True)
 # print(df_listURL)

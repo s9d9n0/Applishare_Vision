@@ -30,17 +30,23 @@ df_Oscar = pd.json_normalize(page_index)
 # sélection des colonnes, renommages, simplification ...
 df_Oscar = df_Oscar[['nomTechnique','balfMaintenanceInformatique', 
                      'quartier.code', 'domaineSndi.nom',
-                     'departement.direction.code','departement.code','departement.libelle','domaineFonctionnel.nom']]
-df_Oscar.rename(columns={'nomTechnique': 'nom', 'balfMaintenanceInformatique': 'balf',
-                         'quartier.code': 'cod_quartier', 'domaineSndi.nom': 'sndi_domaine',
+                     'departement.direction.code',
+                     'departement.code','departement.libelle',
+                     'domaineFonctionnel.nom']]
+df_Oscar.rename(columns={'nomTechnique': 'nom', 
+                         'balfMaintenanceInformatique': 'balf',
+                         'quartier.code': 'cod_quartier',
+                         'domaineSndi.nom': 'sndi_domaine',
                          'departement.direction.code': 'cod_dir_dep',
-                         'departement.code': 'cod_dep','departement.libelle': 'lib_dep',
-                         'domaineFonctionnel.nom': 'domaineFonctionnel'}, inplace=True)
+                         'departement.code': 'cod_dep',
+                         'departement.libelle': 'lib_dep',
+                         'domaineFonctionnel.nom': 'dom_fonc'}, inplace=True)
 
+# simplification libellé des colonnes lib_dep et dom_fonc
 df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('Département','Dep.')
 df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('de la |de l\'','',regex=True)
-df_Oscar['domaineFonctionnel'] = df_Oscar['domaineFonctionnel'].str.replace('Répertoires','Rep.')
-df_Oscar['domaineFonctionnel'] = df_Oscar['domaineFonctionnel'].str.replace('Statistiques','Stat.')
+df_Oscar['dom_fonc'] = df_Oscar['dom_fonc'].str.replace('Répertoires','Rep.')
+df_Oscar['dom_fonc'] = df_Oscar['dom_fonc'].str.replace('Statistiques','Stat.')
 
 # print(df_Oscar)
 

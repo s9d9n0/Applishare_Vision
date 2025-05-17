@@ -15,12 +15,13 @@ df_listURL = pd.read_csv("../dataframe/df_listURL.csv",sep=";")
 # print(df_VV)
 # print()
 
+
 # On crée une liste de Dataframe...
 listing_df_partVV = []
 
-print("**********************")
-print("DEBUT BOUCLE NIVEAU VV")
-print("**********************")
+# print("**********************")
+# print("DEBUT BOUCLE NIVEAU VV")
+# print("**********************")
 print()
 # for i in range(80):
 for i in range(len(df_listURL)):
@@ -34,7 +35,7 @@ for i in range(len(df_listURL)):
     
     # print(list_resVV[4:])
     nbline_listresVV = divmod(len(list_resVV),4)[0]
-    print("nbre lignes : "+ str(nbline_listresVV))
+    # print("nbre lignes : "+ str(nbline_listresVV))
     
     # création de la liste 
     lineVV = 0
@@ -50,9 +51,9 @@ for i in range(len(df_listURL)):
 
     listing_df_partVV.append(df_partVV)
 print()  
-print("********************")
-print("FIN BOUCLE NIVEAU VV")
-print("********************")
+# print("********************")
+# print("FIN BOUCLE NIVEAU VV")
+# print("********************")
 
 # from IPython.display import display
 # from tabulate import tabulate
@@ -76,8 +77,8 @@ for i in range(1,len(listing_df_partVV)):
     df_VV = pd.concat([df_VV,listing_df_partVV[i]])
 df_VV.reset_index(drop=True, inplace=True)
 
-print("IMPRESSION TABLE FINALE :")
-print(df_VV)
+# print("IMPRESSION TABLE :")
+# print(df_VV)
 # df_Final = pd.DataFrame(listing_df_partVV)
 
 ##########################
@@ -124,6 +125,10 @@ df_VV['Use'] = round(df_VV['Use'],2)
 
 imp.creaVar(df_VV)
 df_VV = df_VV[['Volume','env','quartier','dc','zone','type','Application','Cap','Use','Use%']]
+
+
+print("IMPRESSION TABLE DES VV :")
+print(df_VV)
 
 ##########################
 # sauvegarde intermédiaire

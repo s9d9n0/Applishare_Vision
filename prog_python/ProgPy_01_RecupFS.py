@@ -36,8 +36,8 @@ print(list_result[0:12])
 nbline_listresult = divmod(len(list_result),4)[0]
 reste_listresult = divmod(len(list_result),4)[1]
 print("\ndivision du nombre element par groupe de 4 : \n" +
-      "nbre element de la liste : " + str(len(list_result)) + " ; " +
-      "nbre de lignes : " + str(nbline_listresult) + " ; " +
+      "nbre element de la liste : " + str(len(list_result)) + "\n" +
+      "nbre de lignes : " + str(nbline_listresult) + "\n" +
       "reste de la division par 4 : " + str(reste_listresult) + "\n")
 
 # création de la liste 
@@ -52,10 +52,11 @@ df_listFS = pd.DataFrame(df_line, columns=[df_line[0]])
 df_listFS = df_listFS[1:]
 df_listFS.reset_index(drop=True, inplace=True)
 
-print("contenu du dataframe df_listFS..." + " format (nb_ligne, nb_colonne)-> "+str(df_listFS.shape))
+print("contenu du dataframe df_listFS...\n" + 
+      "format (nb_ligne, nb_colonne)-> "+str(df_listFS.shape) + "\n")
 print(df_listFS.head())
-print(df_listFS[30:35])
-print(df_listFS.tail())
+# print(df_listFS[30:35])
+# print(df_listFS.tail())
 print()
 # print("ligne 0 par cellule")
 # print(df_listFS.iloc[0,0])
