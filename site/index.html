@@ -10,7 +10,7 @@
 <body>
     <div class="header">
         <div class="entete">
-            <p>Vision des niveaux de consommation VV d'AppliShare</p>
+            <p>Niveaux de consommation VV d'AppliShadock !!</p>
         </div>
 
         <form name="my-form" action="">
@@ -57,6 +57,7 @@
         <tbody></tbody>
     </table>
 
+    <script src="./fonction_AffichDate.js"></script>
     <script src="./fonction_CreaTable.js"></script>
     <script src="./fonction_TriTable.js"></script>
     <script src="./fonction_FiltreTable.js"></script>
@@ -97,33 +98,34 @@
             console.log(typeof periodeRef);
             console.log(typeof periodeRef[0]["dateJour"]);
 
-            const dateAnStr = periodeRef[0]["dateJour"].substring(0,4)
-            const dateMoisStr = periodeRef[0]["dateJour"].substring(5,7)
-            const dateJourStr = periodeRef[0]["dateJour"].substring(8,10)
-            const dateHeurStr = periodeRef[0]["dateJour"].substring(11,14)
-            switch (dateMoisStr) {
-                case "01": MoisRef = "janvier"; break;
-                case "02": MoisRef = "février"; break;
-                case "03": MoisRef = "mars"; break;
-                case "04": MoisRef = "avril"; break;
-                case "05": MoisRef = "mai"; break;
-                case "06": MoisRef = "juin"; break;
-                case "07": MoisRef = "juillet"; break;
-                case "08": MoisRef = "août"; break;
-                case "09": MoisRef = "setembre"; break;
-                case "10": MoisRef = "octobre"; break;
-                case "11": MoisRef = "novmebre"; break;
-                case "12": MoisRef = "décembre"; break;
-            }
-
-            let champDate = document.getElementById("dateRef");
-            champDate.innerText = "date de référence : le "+dateJourStr+" "+MoisRef+" "+dateAnStr+" - "+dateHeurStr;
+            getDateRef(periodeRef);
 
 
+            console.log("Obtention des datas du tableau");
             const data = await fetchData()
             console.log(data);
             console.log(typeof(data));
             console.log(data[0]);
+
+            // creation d'une variable globale pour utilisation dans fonction de tri (pas de let ou de const à mettre)
+            dataTable = data;
+
+            // const dataJson = JSON.stringify(data);
+            // console.log("les datas en format Json...");
+
+            // console.log(dataJson.length);
+            // console.log(typeof(dataJson)); //string !
+            // console.log(dataJson);
+            // const a = JSON.parse(dataJson);
+            // console.log(a[1]);
+            // console.log(a[1]["Application"]);
+            // console.log("...et niveau longueur "+a.length);
+
+            // let dataSimpleJson = dataJson.substring(1,dataJson.length-1);
+            // console.log(dataSimpleJson);
+            // dataSimpleJson = JSON.parse(dataSimpleJson);
+            // console.log(dataSimpleJson);
+            // console.log(dataSimpleJson[1])
 
 
             let choixQuartier = document.getElementById("choixQuartier").innerText;
@@ -135,6 +137,22 @@
             console.log(dataVV[0]);
             console.log("longueur : "+Object.keys(dataVV).length);
             dataVV = dataVV.filter(dat => (dat.quartier == choixQuartier));
+
+
+            // creation d'une variable globale pour utilisation dans fonction de tri (pas de let ou de const à mettre)
+            dataTable = dataVV;
+
+            const dataJson = JSON.stringify(dataVV);
+            console.log("les datas en format Json...");
+
+            console.log(dataJson.length);
+            console.log(typeof(dataJson)); //string !
+            console.log(dataJson);
+            const a = JSON.parse(dataJson);
+            console.log(a[1]);
+            console.log(a[1]["Application"]);
+            console.log("...et niveau longueur "+a.length);
+
 
             getTableHead();
             getTableBody(dataVV);

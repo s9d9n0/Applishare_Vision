@@ -78,17 +78,57 @@ function sortTable(n) {
 
 function sortESSAI_Table(n) {
     table = document.getElementById('MaTable');
+    console.log('DEBUT DE TRI DE LA TABLE');
+    console.log(table);
+    console.log(table.rows);
     console.log("ligne :"+table.rows[0]);
 
+    console.log("Avant le tri...");
+    dataTable.forEach(item => {
+        console.log(item["Application"]+ " - "+item["Use%"]);
+    })
+    // console.log(dataTable);
+
+    for (let i = 0; i < dataTable.length - 1; i++) {
+        for (let j = 0; j < dataTable.length - i - 1; j++) {
+          if (dataTable[j]["Use%"] < dataTable[j + 1]["Use%"]) {
+            let temp = dataTable[j];
+            dataTable[j] = dataTable[j + 1];
+            dataTable[j + 1] = temp;
+          }
+        }
+    }
+
+    console.log("Après le tri...*******************************************");
+    dataTable.forEach(item => {
+        console.log(item["Application"]+ " - "+item["Use%"]);
+    })
+    // console.log(dataTable);
+
+    //getTableBody(dataTable);
+
+
+    let headers = ['Volume','env','quartier','dc','zone','type','Application','Cap','Use','Use%'];
+    let jsonObject = {};
+    headers.forEach((header,index) => {
+        if (table.rows[0].cells.id) {
+            jsonObject[header] = table.rows[0][index].textContent.trim();
+        }
+    })
+
+    console.log("obtention du json : "+JSON.stringify(jsonObject));
+
+    
     rows = table.rows;
     console.log("nb ligne :"+rows.length);
     for (i = 1; i < rows.length; i++) {
         x = rows[i].getElementsByTagName("td")[n];
         console.log("x : "+x.innerHTML);
     }
-
-
 }
+
+
+
 
 // Algorithme QuickSort
 function sort2Table(n) {
