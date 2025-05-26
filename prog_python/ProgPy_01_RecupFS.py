@@ -129,15 +129,15 @@ imp.transfoUnite(df_listFS)
 # Fonction pourcentage - Version 3 (mis dans ProgPy_00_imports)
 # def pourcentage(line,Num,Denom):
 #     return round(float(line[Num]) / float(line[Denom]) * 100,2)
-df_listFS['Use%'] = df_listFS.apply(imp.pourcentage, axis=1, args=('Use','Cap'))
+df_listFS['UsePrct'] = df_listFS.apply(imp.pourcentage, axis=1, args=('Use','Cap'))
 
 df_listFS = df_listFS.drop(columns=['Capacite','CapUnite','Utilise','UseUnite'])
 
-print(df_listFS[1:11][['Cap','Use','Use%']])
+print(df_listFS[1:11][['Cap','Use','UsePrct']])
 print()
 
 # reordonnancement et renommage des colonnes
-df_listFS = df_listFS[['URL_light','Volume','env','quartier','dc','zone','type','Cap','Use','Use%']]
+df_listFS = df_listFS[['URL_light','Volume','env','quartier','dc','zone','type','Cap','Use','UsePrct']]
 df_listFS.rename(columns={'Cap': 'CapFS', 'Use': 'UseFS'}, inplace=True)
 
 # retrait des lignes de type test | aus puis tri selon plusieurs colonnes
