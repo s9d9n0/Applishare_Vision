@@ -103,7 +103,7 @@ df_VV = df_VV.reset_index()
 # for lg in range(len(df_VV)):
 #     df_VV.loc[lg,'Use%'] = round(
 #         float(df_VV.loc[lg,'Use']) / float(df_VV.loc[lg,'Cap']) * 100,2)
-df_VV['Use%'] = df_VV.apply(imp.pourcentage, axis=1, args=('Use','Cap'))
+df_VV['UsePrct'] = df_VV.apply(imp.pourcentage, axis=1, args=('Use','Cap'))
 
 df_VV = df_VV.drop(columns=['Capacite','CapUnite','Utilise','UseUnite'])
 
@@ -117,7 +117,7 @@ for lg in range(len(df_VV)):
     df_VV.loc[lg,"Volume2"] = df_VV.loc[lg,"Volume"][df_VV.loc[lg,"deb"]+2:df_VV.loc[lg,"fin"]]
 
 # Rearrangement colonnes et renommage
-df_VV = df_VV[['Volume2', 'Application','Cap','Use','Use%']]
+df_VV = df_VV[['Volume2', 'Application','Cap','Use','UsePrct']]
 df_VV.rename(columns={'Volume2': 'Volume'}, inplace=True)
 
 df_VV['Cap'] = pd.to_numeric(df_VV['Cap'], errors='coerce')
@@ -125,7 +125,7 @@ df_VV['Use'] = pd.to_numeric(df_VV['Use'], errors='coerce')
 df_VV['Use'] = round(df_VV['Use'],2)
 
 imp.creaVar(df_VV)
-df_VV = df_VV[['Volume','env','quartier','dc','zone','type','Application','Cap','Use','Use%']]
+df_VV = df_VV[['Volume','env','quartier','dc','zone','type','Application','Cap','Use','UsePrct']]
 
 # tri selon plusieurs colonnes
 df_VV = df_VV.sort_values(by=['env','quartier','dc','zone','type','Application'], 

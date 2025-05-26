@@ -139,7 +139,8 @@
             dataVV = dataVV.filter(dat => (dat.quartier == choixQuartier));
 
 
-            // creation d'une variable globale pour utilisation dans fonction de tri (pas de let ou de const à mettre)
+            // creation d'une variable globale pour utilisation plus tard
+            // dans fonction de tri (pas de let ou de const à mettre)
             dataTable = dataVV;
 
             const dataJson = JSON.stringify(dataVV);

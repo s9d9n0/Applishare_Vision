@@ -76,12 +76,24 @@ function sortTable(n) {
 }
 
 
-function sortESSAI_Table(n) {
+function sortESSAI_Table(sortingMethod,n) {
     table = document.getElementById('MaTable');
     console.log('DEBUT DE TRI DE LA TABLE');
     console.log(table);
     console.log(table.rows);
     console.log("ligne :"+table.rows[0]);
+    console.log(table.rows[1]);
+
+    // const sens = document.querySelector('#colApplication > .fleche > .desc');
+    const sens = document.querySelector('.'+sortingMethod+n);
+    console.log(sens)
+
+    const meth = sens.getAttribute('class').substring(0,3);
+    console.log(meth);
+    const nomCol = sens.parentElement.parentElement.getAttribute('id').replace('col','');
+    console.log(nomCol);
+
+    console.log(dataTable);
 
     console.log("Avant le tri...");
     dataTable.forEach(item => {
@@ -89,13 +101,33 @@ function sortESSAI_Table(n) {
     })
     // console.log(dataTable);
 
-    for (let i = 0; i < dataTable.length - 1; i++) {
-        for (let j = 0; j < dataTable.length - i - 1; j++) {
-          if (dataTable[j]["Use%"] < dataTable[j + 1]["Use%"]) {
-            let temp = dataTable[j];
-            dataTable[j] = dataTable[j + 1];
-            dataTable[j + 1] = temp;
-          }
+
+    if (meth==="des"){
+        for (let i = 0; i < dataTable.length - 1; i++) {
+            for (let j = 0; j < dataTable.length - i - 1; j++) {
+            //   if (dataTable[j]["Use%"] < dataTable[j + 1]["Use%"]) {
+            if (dataTable[j][nomCol] > dataTable[j + 1][nomCol]) {
+                
+                // console.log("AFFICHAGE")
+                // console.log(typeof(dataTable[j][nomCol]))
+
+                let temp = dataTable[j];
+                dataTable[j] = dataTable[j + 1];
+                dataTable[j + 1] = temp;
+            }
+            }
+        }
+    }
+    if (meth==="asc"){
+        for (let i = 0; i < dataTable.length - 1; i++) {
+            for (let j = 0; j < dataTable.length - i - 1; j++) {
+            //   if (dataTable[j]["Use%"] < dataTable[j + 1]["Use%"]) {
+            if (dataTable[j][nomCol] < dataTable[j + 1][nomCol]) {
+                let temp = dataTable[j];
+                dataTable[j] = dataTable[j + 1];
+                dataTable[j + 1] = temp;
+            }
+            }
         }
     }
 
@@ -103,58 +135,26 @@ function sortESSAI_Table(n) {
     dataTable.forEach(item => {
         console.log(item["Application"]+ " - "+item["Use%"]);
     })
-    // console.log(dataTable);
+    console.log(dataTable);
 
-    //getTableBody(dataTable);
+    getTableBody(dataTable);
 
 
-    let headers = ['Volume','env','quartier','dc','zone','type','Application','Cap','Use','Use%'];
-    let jsonObject = {};
-    headers.forEach((header,index) => {
-        if (table.rows[0].cells.id) {
-            jsonObject[header] = table.rows[0][index].textContent.trim();
-        }
-    })
+    // let headers = ['Volume','env','quartier','dc','zone','type','Application','Cap','Use','Use%'];
+    // let jsonObject = {};
+    // headers.forEach((header,index) => {
+    //     if (table.rows[0].cells.id) {
+    //         jsonObject[header] = table.rows[0][index].textContent.trim();
+    //     }
+    // })
 
-    console.log("obtention du json : "+JSON.stringify(jsonObject));
+    // console.log("obtention du json : "+JSON.stringify(jsonObject));
 
     
-    rows = table.rows;
-    console.log("nb ligne :"+rows.length);
-    for (i = 1; i < rows.length; i++) {
-        x = rows[i].getElementsByTagName("td")[n];
-        console.log("x : "+x.innerHTML);
-    }
+    // rows = table.rows;
+    // console.log("nb ligne :"+rows.length);
+    // for (i = 1; i < rows.length; i++) {
+    //     x = rows[i].getElementsByTagName("td")[n];
+    //     console.log("x : "+x.innerHTML);
+    // }
 }
-
-
-
-
-// Algorithme QuickSort
-function sort2Table(n) {
-    let table, rows;
-    table = document.getElementById('MaTable');
-    rows = table.rows;
-
-    // Base case: If the array has one or no elements, it is already sorted.
-    if (rows.length <= 1) return rows;
-  
-    // Choosing the first element in the array as the pivot.
-    const pivot = rows[0].getElementsByTagName("td")[n].innerHTML;
-    console.log("pivot : "+pivot);
-    // Creating two empty arrays to store elements less than (left) and greater than (right) the pivot.
-    const left = [];
-    const right = [];
-  
-    // Looping through the array, starting from the second element because the first is the pivot.
-    for (let i = 1; i < rows.length; i++) {
-      // If the current element is smaller than the pivot, push it to the 'left' array.
-      if (rows[i].getElementsByTagName("td")[n].innerHTML < pivot) left.push(rows[i].getElementsByTagName("td")[n].innerHTML);
-      // If the current element is greater than or equal to the pivot, push it to the 'right' array.
-      else right.push(rows[i].getElementsByTagName("td")[n].innerHTML);
-    }
-  
-    // Concatenate the result of recursively sorting the 'left' array, the pivot, and then the 'right' array.
-    // Spread syntax '...' is used to concatenate arrays.
-    return [...sort2Table(left), pivot, ...sort2Table(right)];
-  }
