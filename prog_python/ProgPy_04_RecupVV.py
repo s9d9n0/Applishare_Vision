@@ -103,7 +103,7 @@ df_VV = df_VV.reset_index()
 # for lg in range(len(df_VV)):
 #     df_VV.loc[lg,'Use%'] = round(
 #         float(df_VV.loc[lg,'Use']) / float(df_VV.loc[lg,'Cap']) * 100,2)
-df_VV['UsePrct'] = df_VV.apply(imp.pourcentage, axis=1, args=('Use','Cap'))
+df_VV['UsePrct'] = df_VV.apply(imp.pourcentage, axis=1, args=('Use','Cap',1))
 
 df_VV = df_VV.drop(columns=['Capacite','CapUnite','Utilise','UseUnite'])
 
@@ -128,8 +128,8 @@ imp.creaVar(df_VV)
 df_VV = df_VV[['Volume','env','quartier','dc','zone','type','Application','Cap','Use','UsePrct']]
 
 # tri selon plusieurs colonnes
-df_VV = df_VV.sort_values(by=['env','quartier','dc','zone','type','Application'], 
-                          ascending=[True,True,True,True,True,True])
+df_VV = df_VV.sort_values(by=['dc','zone','env','quartier','type','Application'], 
+                          ascending=[True,True,False,True,True,True])
 
 print("IMPRESSION TABLE DES VV :")
 print(df_VV)

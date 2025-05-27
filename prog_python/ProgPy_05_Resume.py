@@ -36,7 +36,7 @@ df_fusion = df_fusion.drop(columns=['level_0','index'])
 # for lg in range(len(df_fusion)):
 #     df_fusion.loc[lg,"AllocFS%"] = round(
 #         float((df_fusion.loc[lg,"SomCapVV"]) - float(df_fusion.loc[lg,'CapFS'])) / float(df_fusion.loc[lg,'CapFS']) * 100,2)
-df_fusion['UseCapFS%'] = df_fusion.apply(pourcentage, axis=1, args=('SomCapVV','CapFS'))
+df_fusion['UseCapFS%'] = df_fusion.apply(pourcentage, axis=1, args=('SomCapVV','CapFS',1))
 df_fusion['UseCapFS%'] = df_fusion['UseCapFS%'] - 100
 df_fusion['UseCapFS%'] = round(df_fusion['UseCapFS%'],2)
 

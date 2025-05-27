@@ -104,8 +104,8 @@ def transfoUnite(df : pd.DataFrame) -> pd.DataFrame:
             df.loc[lg,'Use'] = round(float(df.loc[lg,'Use']) / 1000**3, 6)
 
 
-def pourcentage(line,Num,Denom):
-    return round(float(line[Num]) / float(line[Denom]) * 100,2)
+def pourcentage(line, Num, Denom, precision):
+    return round(float(line[Num]) / float(line[Denom]) * 100,precision)
 
 
 dateJour = datetime.datetime.now()

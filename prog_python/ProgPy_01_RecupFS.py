@@ -129,7 +129,7 @@ imp.transfoUnite(df_listFS)
 # Fonction pourcentage - Version 3 (mis dans ProgPy_00_imports)
 # def pourcentage(line,Num,Denom):
 #     return round(float(line[Num]) / float(line[Denom]) * 100,2)
-df_listFS['UsePrct'] = df_listFS.apply(imp.pourcentage, axis=1, args=('Use','Cap'))
+df_listFS['UsePrct'] = df_listFS.apply(imp.pourcentage, axis=1, args=('Use','Cap',1))
 
 df_listFS = df_listFS.drop(columns=['Capacite','CapUnite','Utilise','UseUnite'])
 
