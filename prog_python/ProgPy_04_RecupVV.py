@@ -155,3 +155,49 @@ df_VV_historique.to_csv("../dataframe/historique/df_listVV_"+dateJour+".csv", se
 df_VV_historique = pd.read_csv("../dataframe/historique/df_listVV_"+dateJour+".csv",sep=";")
 ##########################
 
+
+
+listfile = []
+for item in imp.os.listdir("../dataframe/historique"):
+    if item.startswith("df_listVV") and not item.endswith("histo.csv"):
+        listfile.append(item)
+print(listfile)
+
+# selection des 5 derniers éléments
+listfile = listfile[-5:]
+print(listfile)
+
+listdf = []
+for item in listfile:
+    datecal = item[10:27]
+    datecal_short = item[12:14]+item[15:17]+item[18:20]+item[20:27]
+    print(datecal)
+    df_temp = pd.read_csv("../dataframe/historique/df_listVV_"+datecal+".csv",sep=";")
+    df_temp.rename(columns={'Cap': 'Cap'+datecal_short, 
+                            'Use': 'Use'+datecal_short, 
+                            'UsePrct': 'UsePrct'+datecal_short}, inplace=True)
+    listdf.append(df_temp)
+    # df_temp.to_csv("../dataframe/historique/df_listVV_"+datecal+"_rename.csv", sep=';', index=False)
+
+
+
+df_listVV_histo = pd.merge(listdf[0], listdf[1], 
+                           on=['env','quartier','dc','zone','type','Application'], how="outer")
+for i in range(2,len(listdf)):
+    df_listVV_histo = pd.merge(df_listVV_histo, listdf[i], 
+                               on=['env','quartier','dc','zone','type','Application'], how="outer")
+
+colonnes = df_listVV_histo.columns.to_list()
+col1 = colonnes[0:6]
+col2 = colonnes[6:]
+col2.sort()
+
+# print("\n")
+# print(col1)
+# print(col2)
+# print("\n")
+# concatenation des 2 listes puis ordonnancement des colonnes selon cette liste
+col = [*col1, *col2]
+df_listVV_histo = df_listVV_histo[col]
+
+df_listVV_histo.to_csv("../dataframe/historique/df_listVV_histo.csv", sep=';', index=False)

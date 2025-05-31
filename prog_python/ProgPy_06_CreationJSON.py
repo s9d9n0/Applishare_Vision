@@ -31,7 +31,7 @@ with open(cheminWork2+"/site/json/df_listVV.json", "w") as outfile:
     outfile.write(json_df_listVV)
 
 json_df_listVV_top20 = read_csv(cheminWork2+"/dataframe/df_listVV_top20.csv",sep=";")[:].to_json(orient="records")
-# print(json_df_listVV)
+# print(json_df_listVV_top20)
 with open(cheminWork2+"/site/json/df_listVV_top20.json", "w") as outfile:
     outfile.write(json_df_listVV_top20)
 
