@@ -134,10 +134,17 @@ df_VV = df_VV.sort_values(by=['dc','zone','env','quartier','type','Application']
 print("IMPRESSION TABLE DES VV :")
 print(df_VV)
 
+df_VV_top20 = df_VV.sort_values(by=['UsePrct'], ascending=[False]).head(20)
+print("\n")
+print("IMPRESSION TOP 20 DE LA TABLE DES VV :")
+print(df_VV_top20)
+
 ##########################
 # sauvegarde intermédiaire
 df_VV.to_csv('../dataframe/df_listVV.csv', sep=';', index=False)
 df_VV = pd.read_csv("../dataframe/df_listVV.csv",sep=";")
+
+df_VV_top20.to_csv('../dataframe/df_listVV_top20.csv', sep=';', index=False)
 ##########################
 
 

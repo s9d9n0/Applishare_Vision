@@ -10,7 +10,7 @@
 <body>
     <div class="header">
         <div class="entete">
-            <p>Niveaux de consommation VV d'AppliShadock !!</p>
+            <p>Niveaux de consommation VV d'AppliShare</p>
         </div>
 
         <form name="my-form" action="">
@@ -24,6 +24,7 @@
             <label>Veuillez choisir un quartier :</label>
             <select id="quartier" name="quartier">
                 <option value="" selected>Selection...</option>
+                <option value="TOP20">TOP 20 - Niveau d'utilisation</option>
                 <option value="AN">AN - Annuaires</option>
                 <option value="AP">AP - Services aux applications</option>
                 <option value="CN">CN - Comptabilité nationale</option>
@@ -91,13 +92,22 @@
             ))
         }
 
+        const fetchDataTop20 = () => {
+            return new Promise((resolve, reject) => (
+                fetch("./json/df_listVV_top20.json")
+                    .then(res => res.json())
+                    .then(data => resolve(data))
+                    .catch(err => reject(err))
+            ))
+        }
+
+
         async function getData() {
 
             const periodeRef = await fetchPeriodeRef()
             console.log("date de réf : "+periodeRef[0]["dateJour"]);
             console.log(typeof periodeRef);
             console.log(typeof periodeRef[0]["dateJour"]);
-
             getDateRef(periodeRef);
 
 
@@ -107,8 +117,15 @@
             console.log(typeof(data));
             console.log(data[0]);
 
+
+            console.log("Obtention des datas du tableauTOP20");
+            const dataTop20 = await fetchDataTop20()
+            console.log(dataTop20);
+            console.log(typeof(dataTop20));
+            console.log(dataTop20[0]);
+
             // creation d'une variable globale pour utilisation dans fonction de tri (pas de let ou de const à mettre)
-            dataTable = data;
+            // dataTable = data;
 
             // const dataJson = JSON.stringify(data);
             // console.log("les datas en format Json...");
@@ -136,7 +153,12 @@
             console.log(typeof(dataVV));
             console.log(dataVV[0]);
             console.log("longueur : "+Object.keys(dataVV).length);
-            dataVV = dataVV.filter(dat => (dat.quartier == choixQuartier));
+            if (choixQuartier!=="TOP20"){
+                dataVV = dataVV.filter(dat => (dat.quartier == choixQuartier));
+            } else {
+                dataVV = dataTop20;
+            }
+            
 
 
             // creation d'une variable globale pour utilisation plus tard
