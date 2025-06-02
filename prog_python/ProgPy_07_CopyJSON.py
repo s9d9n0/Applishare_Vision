@@ -9,6 +9,7 @@ print('Nom du répertoire de travail courant :\n', os.getcwd())
 
 ##################################################################################
 
+# recopie du répertoire json tout entier
 source_dir = '../site/json'
 destination_dir = '/var/www/visionapplishare/json'
 
@@ -19,4 +20,16 @@ except FileExistsError:
     print('Le répertoire de destination existe déjà.')
 except Exception as e:
     print(f'Erreur lors de la copie : {e}')
+
+
+# recopie des autres fichiers necessaires...
+source_dir = '../site'
+destination_dir = '/var/www/visionapplishare'
+
+list_fichiers = ['index.html','style.css','fonction_AffichDate.js','fonction_FiltreTable.js','fonction_TriTable.js','fonction_CreaTable.js']
+for fichier in list_fichiers:
+    src_file = source_dir + "/" + fichier
+    dst_file = destination_dir + "/" + fichier
+    shutil.copy(src_file,dst_file)
+    print("fichier " + fichier + " recopié avec succès !")
 
