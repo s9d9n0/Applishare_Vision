@@ -1,3 +1,10 @@
+
+# Possibilité de travailler aussi dans un environnement virtuel
+# cd -> vers le répertoire
+# python -m pip install --upgrade pip
+# source venv/Scripts/activate
+# pip install requests BeautifulSoup4 pandas
+
 ##################################################################################
 # import des divers modules utiles
 import os
