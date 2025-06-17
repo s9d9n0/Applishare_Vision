@@ -47,6 +47,9 @@ df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('Département','Dep.')
 df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('de la |de l\'','',regex=True)
 df_Oscar['dom_fonc'] = df_Oscar['dom_fonc'].str.replace('Répertoires','Rep.')
 df_Oscar['dom_fonc'] = df_Oscar['dom_fonc'].str.replace('Statistiques','Stat.')
+df_Oscar['sndi_domaine'] = df_Oscar['sndi_domaine'].str.replace('Statistiques','Stat.')
+df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('statistiques','stat.')
+df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('Conseil National Information Statistique','CNIS')
 
 # print(df_Oscar)
 
