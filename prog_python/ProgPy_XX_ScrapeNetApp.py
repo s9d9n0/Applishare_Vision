@@ -12,6 +12,7 @@ import ProgPy_03_RecupOscar
 
 # récupération des informations des pages VV Virtual-Volume
 import ProgPy_04_RecupVV
+import ProgPy_05_FusionVVOscar
 
 # réunion des informations entre FS et VV pour calcul sous-alloc' / sur-alloc'
 import ProgPy_05_Resume

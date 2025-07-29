@@ -4,13 +4,13 @@ import ProgPy_00_Imports as imp
 from ProgPy_00_Imports import dateJour
 
 import pandas as pd
-pd.set_option('display.max_colwidth', 50)
+pd.set_option('display.max_colwidth', 100)
 
 ##################################################################################
  
+# récupération de la base Oscar, limitation à quelques colonnes puis recodifications pônctuelles...
 df_Oscar = pd.read_csv('../dataframe/df_Oscar.csv', sep=';')
 
-# limitation à quelques colonnes plus recodifications pônctuelles...
 df_Oscar = df_Oscar[['nom','cod_quartier','sndi_domaine','cod_dir_dep','cod_dep']]
 df_Oscar['nom'] = df_Oscar['nom'].str.lower()
 for lg in range(len(df_Oscar)):
@@ -47,40 +47,46 @@ for lg in range(len(df_VV)):
         df_VV.loc[lg,"nom"] = "pegase"
 
 
-
-
 df_VV.drop(['inverse','longueur','dernier_'], axis="columns", inplace=True)
-
-
-df_Vue = df_VV
-df_Vue.to_csv('../dataframe/df_listVUE.csv', sep=';', index=False)
-
-
 
 print(df_VV.head(20))
 
+# df_Vue = df_VV
+# df_Vue.to_csv('../dataframe/df_listVUE.csv', sep=';', index=False)
 
 
-df_VVOscar = pd.merge(df_VV,df_Oscar, on="nom", how="left")
-df_VVOscar = df_VVOscar.fillna("")
-df_VVOscar.reset_index(drop=True, inplace=True)
 
-print(df_VVOscar)
+# fusion entre les 2 dataframes...
+df_VV_et_Oscar = pd.merge(df_VV,df_Oscar, on="nom", how="left")
+df_VV_et_Oscar = df_VV_et_Oscar.fillna("")
+df_VV_et_Oscar.reset_index(drop=True, inplace=True)
 
-df_Vue = df_VVOscar[(df_VVOscar['quartier']!=df_VVOscar['cod_quartier']) & (df_VVOscar['cod_quartier']!="")]
-print(df_Vue)
+
+############################################
+# pour visualiser les différences...
+df_Vue = df_VV_et_Oscar[(df_VV_et_Oscar['quartier']!=df_VV_et_Oscar['cod_quartier']) & (df_VV_et_Oscar['cod_quartier']!="")]
 
 df_Vue2 = pd.merge(df_VV,df_Oscar, on="nom", how="outer")
 df_Vue2 = df_Vue2.fillna("")
 df_Vue2.reset_index(drop=True, inplace=True)
+############################################
+
+
+df_VV_et_Oscar.insert(0, 'cod_dir_dep', df_VV_et_Oscar.pop('cod_dir_dep'))
+df_VV_et_Oscar.insert(1, 'cod_dep', df_VV_et_Oscar.pop('cod_dep'))
+df_VV_et_Oscar.insert(2, 'sndi_domaine', df_VV_et_Oscar.pop('sndi_domaine'))
+df_VV_et_Oscar = df_VV_et_Oscar.drop(columns=['nom','cod_quartier'])
+
+print(df_VV_et_Oscar)
+
 
 ##########################
 # sauvegarde intermédiaire
-df_Vue.to_csv('../dataframe/df_listVVOscar_incoherences.csv', sep=';', index=False)
+df_Vue.to_csv('../dataframe/df_listVVOscar_incoherencesQuartier.csv', sep=';', index=False)
 df_Vue2.to_csv('../dataframe/df_listVVOscar_unmatches.csv', sep=';', index=False)
 
 
-df_VVOscar.to_csv('../dataframe/df_listVVOscar.csv', sep=';', index=False)
-df_VVOscar = pd.read_csv("../dataframe/df_listVVOscar.csv",sep=";")
-
-
+# nouveau fichier df_listVV.csv en sortie avec les 3 colonnes issues d'Oscar au début
+df_VV_et_Oscar.to_csv('../dataframe/df_listVV.csv', sep=';', index=False)
+df_VV_et_Oscar = pd.read_csv("../dataframe/df_listVV.csv",sep=";")
+##########################

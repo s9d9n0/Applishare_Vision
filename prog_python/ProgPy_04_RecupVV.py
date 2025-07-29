@@ -159,7 +159,7 @@ df_VV_historique = pd.read_csv("../dataframe/historique/df_listVV_"+dateJour+".c
 
 listfile = []
 for item in imp.os.listdir("../dataframe/historique"):
-    if item.startswith("df_listVV") and not item.endswith("histo.csv"):
+    if item.startswith("df_listVV") and item.endswith("08h00m.csv") and not item.endswith("histo.csv"):
         listfile.append(item)
 print(listfile)
 
