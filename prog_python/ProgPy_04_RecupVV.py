@@ -23,7 +23,7 @@ listing_df_partVV = []
 # print("**********************")
 # print("DEBUT BOUCLE NIVEAU VV")
 # print("**********************")
-print()
+print("")
 # for i in range(80):
 for i in range(len(df_listURL)):
     # print(df_listURL.loc[i,'URL_heavy'])
@@ -94,7 +94,7 @@ imp.transfoUnite(df_VV)
 # display(df_VV[0:10])
 # print()
 
-#retrait des lignes contenant certains mots comme OB au niveau de la colonne Application ...
+# retrait des lignes contenant certains mots comme 0B au niveau de la colonne Application ...
 # afin que le ratio se déroule parfaitement ensuite...
 df_VV = df_VV[~df_VV['Application'].str.contains('0B')]
 df_VV = df_VV.reset_index()
@@ -130,11 +130,15 @@ df_VV = df_VV[['Volume','env','quartier','dc','zone','type','Application','Cap',
 # tri selon plusieurs colonnes
 df_VV = df_VV.sort_values(by=['dc','zone','env','quartier','type','Application'], 
                           ascending=[True,True,False,True,True,True])
+df_VV.reset_index(drop=True, inplace=True)
 
-print("IMPRESSION TABLE DES VV :")
-print(df_VV)
+print("IMPRESSION TABLE DES VV (10 premières et dernières lignes) :")
+print(df_VV.head(10))
+print("...")
+print(df_VV.tail(10))
 
 df_VV_top20 = df_VV.sort_values(by=['UsePrct'], ascending=[False]).head(20)
+df_VV_top20.reset_index(drop=True, inplace=True)
 print("\n")
 print("IMPRESSION TOP 20 DE LA TABLE DES VV :")
 print(df_VV_top20)
@@ -151,34 +155,33 @@ df_VV_top20.to_csv('../dataframe/df_listVV_top20.csv', sep=';', index=False)
 ##########################*
 df_VV_historique = df_VV.drop(columns=['Volume'])
 # sauvegarde historique
-df_VV_historique.to_csv("../dataframe/historique/df_listVV_"+dateJour+".csv", sep=';', index=False)
-df_VV_historique = pd.read_csv("../dataframe/historique/df_listVV_"+dateJour+".csv",sep=";")
+df_VV_historique.to_csv("../dataframe/historique/listVV/df_listVV_"+dateJour+".csv", sep=';', index=False)
+df_VV_historique = pd.read_csv("../dataframe/historique/listVV/df_listVV_"+dateJour+".csv",sep=";")
 ##########################
 
 
-
 listfile = []
-for item in imp.os.listdir("../dataframe/historique"):
+for item in imp.os.listdir("../dataframe/historique/listVV"):
     if item.startswith("df_listVV") and item.endswith("08h00m.csv") and not item.endswith("histo.csv"):
         listfile.append(item)
+print("\n")
 print(listfile)
 
 # selection des 5 derniers éléments
 listfile = listfile[-5:]
-print(listfile)
+#print(listfile)
 
 listdf = []
 for item in listfile:
-    datecal = item[10:27]
+    datecal = item[10:27] # ainsi datecal est égale à la partie de string du nom de chaque .csv
     datecal_short = item[12:14]+item[15:17]+item[18:20]+item[20:27]
     print(datecal)
-    df_temp = pd.read_csv("../dataframe/historique/df_listVV_"+datecal+".csv",sep=";")
+    df_temp = pd.read_csv("../dataframe/historique/listVV/df_listVV_"+datecal+".csv",sep=";")
     df_temp.rename(columns={'Cap': 'Cap'+datecal_short, 
                             'Use': 'Use'+datecal_short, 
                             'UsePrct': 'UsePrct'+datecal_short}, inplace=True)
     listdf.append(df_temp)
     # df_temp.to_csv("../dataframe/historique/df_listVV_"+datecal+"_rename.csv", sep=';', index=False)
-
 
 
 df_listVV_histo = pd.merge(listdf[0], listdf[1], 
@@ -196,8 +199,9 @@ col2.sort()
 # print(col1)
 # print(col2)
 # print("\n")
-# concatenation des 2 listes puis ordonnancement des colonnes selon cette liste
+# concatenation des 2 listes obtenues puis ordonnancement des colonnes selon cette liste
 col = [*col1, *col2]
 df_listVV_histo = df_listVV_histo[col]
 
 df_listVV_histo.to_csv("../dataframe/historique/df_listVV_histo.csv", sep=';', index=False)
+

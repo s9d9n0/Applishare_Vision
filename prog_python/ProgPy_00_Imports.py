@@ -15,16 +15,9 @@ import re
 import pandas as pd
 import datetime
 
-
 import warnings
 warnings.filterwarnings('ignore')
 
-
-##################################################################################
-# définition du répertoire de travail courant
-cheminWork = os.path.dirname(os.path.abspath(__file__))
-os.chdir(cheminWork)
-print('Nom du répertoire de travail courant :\n', os.getcwd())
 
 ##################################################################################
 # définition de l'URL général
@@ -32,6 +25,14 @@ URL = "http://pdnetapplht101.ad.insee.intra/index.php"
 
 # définition de l'URL vers l'API Oscar
 URL_Oscar = "https://api-referentiel-applications.insee.fr/applications"
+
+# définition du répertoire de travail courant
+cheminWork = os.path.dirname(os.path.abspath(__file__))
+os.chdir(cheminWork)
+
+# définition de la date du jour avec conversion en string
+dateJour = datetime.datetime.now()
+dateJour = dateJour.strftime("%Y-%m-%d_%Hh%Mm")
 
 ##################################################################################
 # définition des fonctions personnelles
@@ -127,7 +128,14 @@ def pourcentage(line, Num, Denom, precision):
     return round(float(line[Num]) / float(line[Denom]) * 100,precision)
 
 
-dateJour = datetime.datetime.now()
-dateJour = dateJour.strftime("%Y-%m-%d_%Hh%Mm")
-# print(type(dateJour))
-print(dateJour)
+if __name__ == "__main__":
+
+    print('Nom du répertoire de travail courant :')
+    print(os.getcwd())
+    print("")
+
+    print('date et heure du jour :')
+    # print(type(dateJour))
+    print(dateJour)
+    print("")
+

@@ -29,7 +29,7 @@ list_result = [str(element) for element in list_result]
 # print()
 # list_result = list_result[0:12]
 
-# suppression de quelques patterns
+# suppression de quelques patterns grâce à l'utilisation de la fonction simplifList()
 imp.simplifList(list_result)
 print(list_result[0:12])
 
@@ -54,7 +54,7 @@ df_listFS.reset_index(drop=True, inplace=True)
 
 print("contenu du dataframe df_listFS...\n" + 
       "format (nb_ligne, nb_colonne)-> "+str(df_listFS.shape) + "\n")
-print(df_listFS.head())
+# print(df_listFS.head())
 # print(df_listFS[30:35])
 # print(df_listFS.tail())
 print()
@@ -131,14 +131,15 @@ imp.transfoUnite(df_listFS)
 #     return round(float(line[Num]) / float(line[Denom]) * 100,2)
 df_listFS['UsePrct'] = df_listFS.apply(imp.pourcentage, axis=1, args=('Use','Cap',1))
 
+
+# Opération sur les colonnes : suppression, reordonnancement et renommage
 df_listFS = df_listFS.drop(columns=['Capacite','CapUnite','Utilise','UseUnite'])
 
-print(df_listFS[1:11][['Cap','Use','UsePrct']])
-print()
-
-# reordonnancement et renommage des colonnes
 df_listFS = df_listFS[['URL_light','Volume','env','quartier','dc','zone','type','Cap','Use','UsePrct']]
 df_listFS.rename(columns={'Cap': 'CapFS', 'Use': 'UseFS'}, inplace=True)
+
+print(df_listFS[1:11][['Volume','env','quartier','dc','zone','type','CapFS','UseFS','UsePrct']])
+print()
 
 # retrait des lignes de type test | aus puis tri selon plusieurs colonnes
 df_listFS = df_listFS[~df_listFS['Volume'].str.contains("test")]
@@ -163,9 +164,9 @@ df_listFS = pd.read_csv("../dataframe/df_listFS_C.csv",sep=";")
 ##################################################################################
 ##################################################################################
 df_listFS_historique = df_listFS.drop(columns=['URL_light','Volume'])
-# sauvegarde historique
-df_listFS_historique.to_csv("../dataframe/historique/df_listFS_"+dateJour+".csv", sep=';', index=False)
-df_listFS_historique = pd.read_csv("../dataframe/historique/df_listFS_"+dateJour+".csv",sep=";")
+# sauvegarde historique dans sous-repertoire dédié listFS
+df_listFS_historique.to_csv("../dataframe/historique/listFS/df_listFS_"+dateJour+".csv", sep=';', index=False)
+df_listFS_historique = pd.read_csv("../dataframe/historique/listFS/df_listFS_"+dateJour+".csv",sep=";")
 ##################################################################################
 ##################################################################################
 

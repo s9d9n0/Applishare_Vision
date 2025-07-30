@@ -54,3 +54,4 @@ df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('Conseil National Informat
 # print(df_Oscar)
 
 df_Oscar.to_csv('../dataframe/df_Oscar.csv', sep=';', index=False)
+
