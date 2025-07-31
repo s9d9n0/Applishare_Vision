@@ -1,8 +1,10 @@
 venv/
-venv_old/
 __pycache__/
 prog_python/__pycache__/
 prog_python/tempCodeRunnerFile.py
 dataframe/*.csv
 dataframe/historique/*.csv
+dataframe/historique/*.md
+dataframe/historique/listFS/*.csv
+dataframe/historique/listVV/*.csv
 site/json/*.json
