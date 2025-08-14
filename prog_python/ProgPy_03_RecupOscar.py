@@ -2,6 +2,8 @@
 # import des divers modules utiles
 from ProgPy_00_Imports import requests, URL_Oscar
 
+from pprint import pprint
+
 import pandas as pd
 pd.set_option('display.max_colwidth', 50)
 
@@ -17,7 +19,7 @@ response = requests.get(URL_Oscar, verify=False, timeout=10)
 # utilisation de la fonction .json()
 page_index = response.json()
 # print(type(page_index))
-# print(page_index)
+# pprint(page_index)
 
 # df = pd.DataFrame(page_index)
 # print(df)
@@ -28,19 +30,18 @@ page_index = response.json()
 
 df_Oscar = pd.json_normalize(page_index)
 # sélection des colonnes, renommages, simplification ...
-df_Oscar = df_Oscar[['nomTechnique','balfMaintenanceInformatique', 
-                     'quartier.code', 'domaineSndi.nom',
-                     'departement.direction.code',
-                     'departement.code','departement.libelle',
-                     'domaineFonctionnel.nom']]
-df_Oscar.rename(columns={'nomTechnique': 'nom', 
-                         'balfMaintenanceInformatique': 'balf',
-                         'quartier.code': 'cod_quartier',
-                         'domaineSndi.nom': 'sndi_domaine',
-                         'departement.direction.code': 'cod_dir_dep',
-                         'departement.code': 'cod_dep',
-                         'departement.libelle': 'lib_dep',
-                         'domaineFonctionnel.nom': 'dom_fonc'}, inplace=True)
+df_Oscar = df_Oscar[['nom','balfMaintenanceInformatique', 
+                    'quartier.code', 'domaineSndi.nom',
+                    'departement.direction.code',
+                    'departement.code','departement.libelle',
+                    'domaineFonctionnel.nom']]
+df_Oscar.rename(columns={'balfMaintenanceInformatique': 'balf',
+                        'quartier.code': 'cod_quartier',
+                        'domaineSndi.nom': 'sndi_domaine',
+                        'departement.direction.code': 'cod_dir_dep',
+                        'departement.code': 'cod_dep',
+                        'departement.libelle': 'lib_dep',
+                        'domaineFonctionnel.nom': 'dom_fonc'}, inplace=True)
 
 # simplification libellé des colonnes lib_dep et dom_fonc
 df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('Département','Dep.')
@@ -55,3 +56,6 @@ df_Oscar['lib_dep'] = df_Oscar['lib_dep'].str.replace('Conseil National Informat
 
 df_Oscar.to_csv('../dataframe/df_Oscar.csv', sep=';', index=False)
 
+print("")
+print("Récupération informations Oscar OK")
+print("")

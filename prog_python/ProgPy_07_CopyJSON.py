@@ -26,7 +26,14 @@ except Exception as e:
 source_dir = '../site'
 destination_dir = '/var/www/visionapplishare'
 
-list_fichiers = ['index.html','style.css','fonction_AffichDate.js','fonction_FiltreTable.js','fonction_TriTable.js','fonction_CreaTable.js']
+# list_fichiers = ['index.html','style.css','fonction_AffichDate.js','fonction_FiltreTable.js','fonction_TriTable.js','fonction_CreaTable.js']
+list_fichiers = ['index.html',
+                'style.css',
+                'Js_00_FetchDataJSON.js',
+                'Js_01_AffichDate.js',
+                'Js_02_CreaTable.js',
+                'Js_03_FiltreTable.js',
+                'Js_04_TriTable.js']
 for fichier in list_fichiers:
     src_file = source_dir + "/" + fichier
     dst_file = destination_dir + "/" + fichier
