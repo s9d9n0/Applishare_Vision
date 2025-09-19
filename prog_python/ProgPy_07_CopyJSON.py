@@ -28,7 +28,9 @@ destination_dir = '/var/www/visionapplishare'
 
 # list_fichiers = ['index.html','style.css','fonction_AffichDate.js','fonction_FiltreTable.js','fonction_TriTable.js','fonction_CreaTable.js']
 list_fichiers = ['index.html',
+                'index_EtatFS.html',
                 'style.css',
+                'Js_00_EventClick.js',
                 'Js_00_FetchDataJSON.js',
                 'Js_01_AffichDate.js',
                 'Js_02_CreaTable.js',

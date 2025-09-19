@@ -44,7 +44,7 @@ df_fusion['diff_UseFS-SomUseVV'] = round(df_fusion['UseFS'] - df_fusion['SomUseV
 
 # Rearrangement colonnes
 df_fusion = df_fusion[['Volume','env','quartier','dc','zone','type',
-                       'CapFS','SomCapVV','UseCapFS%','UseFS','SomUseVV','diff_UseFS-SomUseVV']]
+                        'CapFS','SomCapVV','UseCapFS%','UseFS','SomUseVV','diff_UseFS-SomUseVV']]
 
 
 ##########################

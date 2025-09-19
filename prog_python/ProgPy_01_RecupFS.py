@@ -130,7 +130,8 @@ imp.transfoUnite(df_listFS)
 # def pourcentage(line,Num,Denom):
 #     return round(float(line[Num]) / float(line[Denom]) * 100,2)
 df_listFS['UsePrct'] = df_listFS.apply(imp.pourcentage, axis=1, args=('Use','Cap',1))
-
+df_listFS['Use'] = pd.to_numeric(df_listFS['Use'], errors='coerce')
+df_listFS['Use'] = round(df_listFS['Use'],2)
 
 # Opération sur les colonnes : suppression, reordonnancement et renommage
 df_listFS = df_listFS.drop(columns=['Capacite','CapUnite','Utilise','UseUnite'])
@@ -150,7 +151,7 @@ df_listFS = df_listFS[~df_listFS['Volume'].str.contains("aus_COM|aus_DEP|aus_ECH
 df_listFS.reset_index(drop=True, inplace=True)
 
 df_listFS = df_listFS.sort_values(by=['env','quartier','dc','zone','type'], 
-                                  ascending=[True,True,True,True,True])
+                                    ascending=[True,True,True,True,True])
 
 ##################################################################################
 ##################################################################################

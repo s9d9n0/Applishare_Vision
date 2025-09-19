@@ -129,7 +129,7 @@ df_VV = df_VV[['Volume','env','quartier','dc','zone','type','Application','Cap',
 
 # tri selon plusieurs colonnes
 df_VV = df_VV.sort_values(by=['dc','zone','env','quartier','type','Application'], 
-                          ascending=[True,True,False,True,True,True])
+                            ascending=[True,True,False,True,True,True])
 df_VV.reset_index(drop=True, inplace=True)
 
 print("IMPRESSION TABLE DES VV (10 premières et dernières lignes) :")
