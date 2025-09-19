@@ -5,69 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="img/favicon-moon.png">
     <title>AppliShare</title>
-    <link rel="stylesheet" href="./style_NEW.css"/>
-    <script type="text/javascript" src="./Js_00_EventClick.js"></script>
+    <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="./index_NEW.html" id="pageNav1" class="clickNav" onclick=clickNav()>Etat VV</a></li>
-            <li><a href="./index_EtatFS.html" id="pageNav2" onclick=clickNav()>Etat FS</a></li>
-        </ul>
-
-        <div class="header">
-            <div class="entete">
-                <div class="child1"><p>Niveaux de consommation <span>Virtual-Volume</span> d'AppliShalala</p></div>
-                <div class="child2"><img class="teletubbies" src="./img/teletubbies_bg_rsz.png" alt="image teletubbies"/></div>
-                <div class="child3">
-
-                    <form name="my-form" action="">
-                        <img class="pinGauche" src="./img/pngimg_pin_PNG74_xs.png" alt="image pin"/>
-                        <img class="pinDroite" src="./img/pngimg_pin_PNG80_xs.png" alt="image pin"/>
-                        <div id="dateRef"></div>
-                        <br />
-                        <label>Veuillez choisir un quartier :</label>
-                        <select id="quartier" name="quartier">
-                            <option value="" selected>Selection...</option>
-                            <option value="TOP20">TOP 20 - Niveau d'utilisation</option>
-                            <option value="AN">AN - Annuaires</option>
-                            <option value="AP">AP - Services aux applications</option>
-                            <option value="CN">CN - Comptabilité nationale</option>
-                            <option value="CJ">CJ - Conjoncture</option>
-                            <option value="DF">DF - Diffusion et études</option>
-                            <option value="EN">EN - Statistique d'entreprise</option>
-                            <option value="EP">EP - Statistique sur l'emploi</option>
-                            <option value="GE">GE - Geographie</option>
-                            <option value="IF">IF - Infrastructure</option>
-                            <option value="MN">MN - Statistique sur les ménages</option>
-                            <option value="PL">PL - Pilotage et appui</option>
-                            <option value="PX">PX - Prix</option>
-                            <option value="RE">RE - Repertoire d'entreprises</option>
-                            <option value="RH">RH - Ressources humaines</option>
-                            <option value="RI">RI - Repertoire d'individus</option>
-                            <option value="RP">RP - Recensement de la population</option>
-                            <option value="ST">ST - Services statistiques</option>
-                            <option value="UT">UT - Services aux utilisateurs</option>
-                            <option value="DPT_IF">DEPOT INFRA</option>
-                        </select>
-                        <br />
-                    </form>
-                </div>
-
-            </div>
-
-            <div style="transform:translateX(-50px) translateY(-50px);" id="choixQuartier"></div>
+    <div class="header">
+        <div class="entete">
+            <p>Niveaux de consommation VV d'AppliShare</p>
         </div>
+
+        <form name="my-form" action="">
+
+            <img class="pinGauche" src="./img/pngimg_pin_PNG74_xs.png" alt="image pin"/>
+            <img class="pinDroite" src="./img/pngimg_pin_PNG80_xs.png" alt="image pin"/>
+            <div id="dateRef"></div>
+
+            </br>
+
+            <label>Veuillez choisir un quartier :</label>
+            <select id="quartier" name="quartier">
+                <option value="" selected>Selection...</option>
+                <option value="TOP20">TOP 20 - Niveau d'utilisation</option>
+                <option value="AN">AN - Annuaires</option>
+                <option value="AP">AP - Services aux applications</option>
+                <option value="CN">CN - Comptabilité nationale</option>
+                <option value="CJ">CJ - Conjoncture</option>
+                <option value="DF">DF - Diffusion et études</option>
+                <option value="EN">EN - Statistique d'entreprise</option>
+                <option value="EP">EP - Statistique sur l'emploi</option>
+                <option value="GE">GE - Geographie</option>
+                <option value="IF">IF - Infrastructure</option>
+                <option value="MN">MN - Statistique sur les ménages</option>
+                <option value="PL">PL - Pilotage et appui</option>
+                <option value="PX">PX - Prix</option>
+                <option value="RE">RE - Repertoire d'entreprises</option>
+                <option value="RH">RH - Ressources humaines</option>
+                <option value="RI">RI - Repertoire d'individus</option>
+                <option value="RP">RP - Recensement de la population</option>
+                <option value="ST">ST - Services statistiques</option>
+                <option value="UT">UT - Services aux utilisateurs</option>
+                <option value="DPT_IF">DEPOT INFRA</option>
+            </select>
+        
+            <br />
+        </form>
+
+        <div style="transform:translateX(-50px);" id="choixQuartier"></div>
+
     </div>
-
-
-
 
     <table id="MaTable">
         <thead></thead>
         <tbody></tbody>
     </table>
-
 
     <script type="text/javascript" src="./Js_00_FetchDataJSON.js"></script>
     <script type="text/javascript" src="./Js_01_AffichDate.js"></script>

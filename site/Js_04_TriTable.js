@@ -1,8 +1,9 @@
 
-function sortTable(n) {
+function sortTable(refIdTab,n) {
 
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById('MaTable');
+    // table = document.getElementById('MaTable');
+    table = document.getElementById(refIdTab);
     // console.log("ligne :"+table.rows[0]);
 
     switching = true;
@@ -28,7 +29,7 @@ function sortTable(n) {
         /* Check if the 2 rows should switch place, based on the direction, asc or desc: */
             console.log("num colonne = "+n);
             if (dir == "asc") {
-                if (n==7 || n==8 || n==9) {
+                if ((n==6 && refIdTab=='MaTable2') || n==7 || n==8 || n==9) {
                     if (x.innerHTML=="<i>??</i>"){
                         rows[i].parentNode.insertBefore(rows[i], rows[rows.length]);
                     }
@@ -42,7 +43,7 @@ function sortTable(n) {
                     }
                 }
             } else if (dir == "desc") {
-                if (n==7 || n==8 || n==9) {
+                if ((n==6 && refIdTab=='MaTable2') || n==7 || n==8 || n==9) {
                     if (x.innerHTML=="<i>??</i>"){
                         rows[i].parentNode.insertBefore(rows[i], rows[rows.length]);
                     }
@@ -76,8 +77,9 @@ function sortTable(n) {
 }
 
 
-function sortESSAI_Table(sortingMethod,n) {
-    table = document.getElementById('MaTable');
+function sortESSAI_Table(refIdTab,sortingMethod,n) {
+    // table = document.getElementById('MaTable');
+    table = document.getElementById(refIdTab);
     console.log('DEBUT DE TRI DE LA TABLE');
     console.log(table);
     console.log(table.rows);
@@ -137,7 +139,13 @@ function sortESSAI_Table(sortingMethod,n) {
     })
     console.log(dataTable);
 
-    getTableBody(dataTable);
+    if (refIdTab==='MaTable') {
+        getTableVVBody(dataTable);
+    }
+    if (refIdTab==='MaTable2') {
+        getTableFSBody(dataTable);
+    }
+
 
 
     // let headers = ['Volume','env','quartier','dc','zone','type','Application','Cap','Use','Use%'];

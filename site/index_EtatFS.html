@@ -11,13 +11,13 @@
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="./index_NEW.html" id="pageNav1" class="clickNav" onclick=clickNav()>Etat VV</a></li>
-            <li><a href="./index_EtatFS.html" id="pageNav2" onclick=clickNav()>Etat FS</a></li>
+            <li><a href="./index_NEW.html" id="pageNav1" onclick=clickNav()>Etat VV</a></li>
+            <li><a href="./index_EtatFS.html" id="pageNav2" class="clickNav" onclick=clickNav()>Etat FS</a></li>
         </ul>
 
         <div class="header">
             <div class="entete">
-                <div class="child1"><p>Niveaux de consommation <span>Virtual-Volume</span> d'AppliShalala</p></div>
+                <div class="child1"><p>Niveaux de consommation <span>File-System</span> d'AppliShalala</p></div>
                 <div class="child2"><img class="teletubbies" src="./img/teletubbies_bg_rsz.png" alt="image teletubbies"/></div>
                 <div class="child3">
 
@@ -29,7 +29,7 @@
                         <label>Veuillez choisir un quartier :</label>
                         <select id="quartier" name="quartier">
                             <option value="" selected>Selection...</option>
-                            <option value="TOP20">TOP 20 - Niveau d'utilisation</option>
+                            <!-- <option value="TOP20">TOP 20 - Niveau d'utilisation</option> -->
                             <option value="AN">AN - Annuaires</option>
                             <option value="AP">AP - Services aux applications</option>
                             <option value="CN">CN - Comptabilité nationale</option>
@@ -60,50 +60,41 @@
         </div>
     </div>
 
-
-
-
-    <table id="MaTable">
+    <table id="MaTable2">
         <thead></thead>
         <tbody></tbody>
     </table>
-
 
     <script type="text/javascript" src="./Js_00_FetchDataJSON.js"></script>
     <script type="text/javascript" src="./Js_01_AffichDate.js"></script>
     <script type="text/javascript" src="./Js_02_CreaTable.js"></script>
     <script type="text/javascript" src="./Js_03_FiltreTable.js"></script>
     <script type="text/javascript" src="./Js_04_TriTable.js"></script>
-
+    
     <script>
 
         let periodeRef = "";
         let data = new Object();
-        let dataTop20 = new Object();
-        periodeRef, data, dataTop20 = getAllDataVV();
+        periodeRef, data = getAllDataFS();
 
         function getData() {
 
             let choixQuartier = document.getElementById("choixQuartier").innerText;
             // console.log("modalité choisie : " + choixQuartier);
 
-            let dataVV = data;
-            // console.log(dataVV);
-            // console.log(typeof(dataVV));
-            // console.log(dataVV[0]);
-            // console.log("longueur : "+Object.keys(dataVV).length);
+            let dataFS = data;
+            console.log(dataFS);
+            // console.log(typeof(dataFS));
+            // console.log(dataFS[0]);
+            // console.log("longueur : "+Object.keys(dataFS).length);
 
-            if (choixQuartier!=="TOP20"){
-                dataVV = dataVV.filter(dat => (dat.quartier == choixQuartier));
-            } else {
-                dataVV = dataTop20;
-            }
+            dataFS = dataFS.filter(dat => (dat.quartier == choixQuartier));
             
             // creation d'une variable globale pour utilisation plus tard
             // dans fonction de tri (pas de let ou de const à mettre)
-            dataTable = dataVV;
+            dataTable = dataFS;
 
-            const dataJson = JSON.stringify(dataVV);
+            const dataJson = JSON.stringify(dataFS);
             console.log("les datas en format Json...");
 
             console.log(dataJson.length);
@@ -111,7 +102,7 @@
             console.log(dataJson);
             const a = JSON.parse(dataJson);
             console.log(a[1]);
-            console.log(a[1]["Application"]);
+            console.log(a[1]["Volume"]);
             console.log("...et niveau longueur "+a.length);
 
             // let dataSimpleJson = dataJson.substring(1,dataJson.length-1);
@@ -120,8 +111,8 @@
             // console.log(dataSimpleJson);
             // console.log(dataSimpleJson[1])
 
-            getTableVVHead();
-            getTableVVBody(dataVV);
+            getTableFSHead();
+            getTableFSBody(dataFS);
         }
 
         /////////////////////////////////////////////
@@ -142,7 +133,7 @@
             console.log('********************************')
 
             let optionValue = this.value;
-            //console.log(optionValue);
+            // console.log(optionValue);
             // let index = this.selectedIndex;
             // optionText = this.options[index].innerText;
             // console.log(optionText," en index n° ", index)
@@ -162,4 +153,3 @@
 
 </body>
 </html>
-

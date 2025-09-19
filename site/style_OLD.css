@@ -18,57 +18,11 @@ body {
     background-image: linear-gradient(45deg, black, grey);
 }
 
-.navbar {
-    position : sticky;
-    /* z-index:3; */
-    left:0px;
-    top:0px;
-}
-
-ul {    
-    display: flex;
-    height: 50px;
-    list-style-type: none;
-    /* background-color: #333333; */
-    background-color: rgb(100, 100, 100);
-}
-
-ul li {
-    float: right;
-    /* border-right: 3px solid #bbbbbb;
-    border-bottom: 3px solid #bbbbbb;
-    border-radius: 20px; */
-}
-/* ul li:last-child {
-    border-right: none;
-} */
-
-ul li a {
-    display: block;
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-right: 3px solid #bbbbbb;
-    border-bottom: 3px solid #bbbbbb;
-    border-radius: 20px;
-}
-
-/* ul li a:hover {
-    background-color: #111111;
-    border-radius: 20px;
-} */
-.clickNav {
-    /* background-color: #111111; */
-    border-radius: 20px;
-    color: black;
-    background-color: white;
-}
-
-
 .header {
     position: sticky;
-    /* z-index:2; */
-    /* top: 50; */
+    z-index:3;
+    top: 0;
+    width: 99%;
     height:150px;
     background-color: grey;
     border-radius: 5px;
@@ -77,18 +31,12 @@ ul li a {
 
 p {
     font-family: 'sf-slapstick-comic','BoyzRGrossShadowNF', Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-    margin-left: 15px;
-    /* margin: 10px; */
-    height: 50px;
+    padding: 15px;
+    margin: 10px;
     font-size:30px;
     font-style: italic;
     font-weight: bold;
     color:#0ee0d2;
-}
-p span {
-    font-size: 40px;
-    color:#00ffee;
 }
 
 /* ********************************** */
@@ -96,28 +44,7 @@ p span {
 
 .entete {
     white-space: nowrap; /* pour empêcher le retour ligne lorsque la largeur écran se réduit */
-    display: grid;
-    /* grid-template-columns: repeat(2, 1fr); */
-    grid-template-columns: 5fr 1fr;
-    /* grid-template-rows: repeat(2, 1fr); */
-    /* grid-template-rows: auto; */
-    grid-template-rows: 1fr 2fr; 
-    /* gap: auto; */
 }
-
-.child1 {
-    height: 50px;
-}
-.child2 {
-    grid-row: span 2 / span 2;
-}
-.child2 img {
-    transform: translateY(-30px);
-}
-/* .child3 {
-    transform: translateY(-20px);
-} */
-
 
 form {
     position: relative;
@@ -133,7 +60,7 @@ form {
 
 .pinGauche {
     position:absolute;
-    top:-25px;
+    top:-30px;
     left:-5px;
 }
 
@@ -147,7 +74,7 @@ form {
 /* ********************************** */
 
 table {
-    margin-top: 0px;
+    margin-top: 10px;
     /* margin: 50 10 50 10; */
     border-spacing: 1px;
     width: 98%;
@@ -159,9 +86,9 @@ table {
 
 thead tr {
     position:sticky; 
-    /* z-index:2;  */
+    z-index:2; 
     left:0px;
-    top: 200px; /* 50px + 150px */
+    top:150px;
 }
 
 th#colVolume, th#colApplication, th#colUsePrct {

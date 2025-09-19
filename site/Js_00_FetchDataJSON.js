@@ -21,7 +21,7 @@ const fetchPeriodeRef = () => {
 }
 
 // lecture liste des VV
-const fetchData = () => {
+const fetchDataVV = () => {
     return new Promise((resolve, reject) => (
         fetch("./json/df_listVV.json")
             .then(res => res.json())
@@ -31,9 +31,21 @@ const fetchData = () => {
 }
 
 //lecture Top20 des VV les plus utlisés
-const fetchDataTop20 = () => {
+const fetchDataVVTop20 = () => {
     return new Promise((resolve, reject) => (
         fetch("./json/df_listVV_top20.json")
+            .then(res => res.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+    ))
+}
+
+
+
+// lecture liste des FS
+const fetchDataFS = () => {
+    return new Promise((resolve, reject) => (
+        fetch("./json/df_listFS.json")
             .then(res => res.json())
             .then(data => resolve(data))
             .catch(err => reject(err))
@@ -44,7 +56,7 @@ const fetchDataTop20 = () => {
 // #################################################################
 // #################################################################
 
-async function getAllData() {
+async function getAllDataVV() {
     periodeRef = await fetchPeriodeRef()
     console.log("\n")
     console.log("# Obtention de la date de référence : ####");
@@ -56,7 +68,7 @@ async function getAllData() {
     getDateRef(periodeRef);
     console.log("##########################################")
 
-    data = await fetchData()
+    data = await fetchDataVV()
     console.log("\n")
     console.log("# Obtention des datas du tableau : #######");
     console.log(data);
@@ -65,7 +77,7 @@ async function getAllData() {
     console.log(data[0]);
     console.log("##########################################")
 
-    dataTop20 = await fetchDataTop20()
+    dataTop20 = await fetchDataVVTop20()
     console.log("\n")
     console.log("# Obtention des datas du tableauTOP20 : ##");
     console.log(dataTop20);
@@ -77,3 +89,27 @@ async function getAllData() {
     return [periodeRef, data, dataTop20];
 }
 
+
+async function getAllDataFS() {
+    periodeRef = await fetchPeriodeRef()
+    console.log("\n")
+    console.log("# Obtention de la date de référence : ####");
+    console.log("date de réf : "+periodeRef[0]["dateJour"]);
+    console.log("type de periodeRef : " + typeof periodeRef);
+    console.log("type de periodeRef[0]['dateJour'] : " + typeof periodeRef[0]["dateJour"]);
+    // mobilisation de la fonction getDateRef définie dans le script Js_01_AffichDate.js
+    // qui introduit la date dans la page HTML
+    getDateRef(periodeRef);
+    console.log("##########################################")
+
+    data = await fetchDataFS()
+    console.log("\n")
+    console.log("# Obtention des datas du tableau : #######");
+    console.log(data);
+    console.log("type de data : " + typeof(data));
+    console.log("affichage de data[0] : ")
+    console.log(data[0]);
+    console.log("##########################################")
+
+    return [periodeRef, data];
+}

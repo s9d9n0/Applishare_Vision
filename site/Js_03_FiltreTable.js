@@ -1,9 +1,10 @@
 
-function filtreColonne(id,numcol) {
+function filtreColonne(refIdTab,id,numcol) {
     let input, filter, table, tr, td, i, txtValue;
     input = document.getElementById(id);
     filter = input.value.toUpperCase();
-    table = document.getElementById("MaTable");
+    // table = document.getElementById("MaTable");
+    table = document.getElementById(refIdTab);
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[numcol];
