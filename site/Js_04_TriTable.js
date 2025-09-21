@@ -29,7 +29,7 @@ function sortTable(refIdTab,n) {
         /* Check if the 2 rows should switch place, based on the direction, asc or desc: */
             console.log("num colonne = "+n);
             if (dir == "asc") {
-                if ((n==6 && refIdTab=='MaTable2') || n==7 || n==8 || n==9) {
+                if ((n==6 && refIdTab=='MaTableFS') || (n==6 && refIdTab=='MaTableVV_Histo') || n==7 || n==8 || n==9) {
                     if (x.innerHTML=="<i>??</i>"){
                         rows[i].parentNode.insertBefore(rows[i], rows[rows.length]);
                     }
@@ -43,7 +43,7 @@ function sortTable(refIdTab,n) {
                     }
                 }
             } else if (dir == "desc") {
-                if ((n==6 && refIdTab=='MaTable2') || n==7 || n==8 || n==9) {
+                if ((n==6 && refIdTab=='MaTableFS') || (n==6 && refIdTab=='MaTableVV_Histo') || n==7 || n==8 || n==9) {
                     if (x.innerHTML=="<i>??</i>"){
                         rows[i].parentNode.insertBefore(rows[i], rows[rows.length]);
                     }
@@ -139,10 +139,13 @@ function sortESSAI_Table(refIdTab,sortingMethod,n) {
     })
     console.log(dataTable);
 
-    if (refIdTab==='MaTable') {
+    if (refIdTab==='MaTableVV') {
         getTableVVBody(dataTable);
     }
-    if (refIdTab==='MaTable2') {
+    if (refIdTab==='MaTableVV_Histo') {
+        getTableVVBody_Histo(dataTable);
+    }
+    if (refIdTab==='MaTableFS') {
         getTableFSBody(dataTable);
     }
 

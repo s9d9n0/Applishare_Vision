@@ -24,6 +24,12 @@ json_df_listFS = read_csv(cheminWork2+"/dataframe/df_listFS_C.csv",sep=";").to_j
 with open(cheminWork2+"/site/json/df_listFS.json", "w") as outfile:
     outfile.write(json_df_listFS)
 
+json_df_listFS_top20 = read_csv(cheminWork2+"/dataframe/df_listFS_top20.csv",sep=";")[:].to_json(orient="records")
+# print(json_df_listFS_top20)
+with open(cheminWork2+"/site/json/df_listFS_top20.json", "w") as outfile:
+    outfile.write(json_df_listFS_top20)
+
+
 
 json_df_listVV = read_csv(cheminWork2+"/dataframe/df_listVV.csv",sep=";")[:].to_json(orient="records")
 # print(json_df_listVV)
@@ -35,11 +41,17 @@ json_df_listVV_top20 = read_csv(cheminWork2+"/dataframe/df_listVV_top20.csv",sep
 with open(cheminWork2+"/site/json/df_listVV_top20.json", "w") as outfile:
     outfile.write(json_df_listVV_top20)
 
+json_df_listVV_histo = read_csv(cheminWork2+"/dataframe/historique/df_listVV_histo.csv",sep=";")[:].to_json(orient="records")
+# print(json_df_listVV_histo)
+with open(cheminWork2+"/site/json/df_listVV_histo.json", "w") as outfile:
+    outfile.write(json_df_listVV_histo)
+
 
 json_df_fusion = read_csv(cheminWork2+"/dataframe/df_fusion.csv",sep=";").to_json(orient="records")
 # print(json_df_fusion)
 with open(cheminWork2+"/site/json/df_fusion.json", "w") as outfile:
     outfile.write(json_df_fusion)
+
 
 
 dateJour_Json = '[{"dateJour": "'+dateJour+'"}]'

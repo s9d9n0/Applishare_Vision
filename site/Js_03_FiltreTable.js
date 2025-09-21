@@ -1,5 +1,17 @@
 
 function filtreColonne(refIdTab,id,numcol) {
+    // pour vider le champ de recherche de l'autre colonne lorsque l'on commence à taper dans une autre
+    if (refIdTab=="MaTableVV" && id=="volume"){
+      let inputOtherCol = document.getElementById("application");
+      console.log(inputOtherCol.value);
+      inputOtherCol.value = "";
+    }
+    if (refIdTab=="MaTableVV" && id=="application"){
+      let inputOtherCol = document.getElementById("volume");
+      console.log(inputOtherCol.value);
+      inputOtherCol.value = "";
+    }
+
     let input, filter, table, tr, td, i, txtValue;
     input = document.getElementById(id);
     filter = input.value.toUpperCase();

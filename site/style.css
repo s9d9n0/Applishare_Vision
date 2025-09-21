@@ -25,6 +25,10 @@ body {
     top:0px;
 }
 
+.bordul {
+    border: 5px solid black;
+}
+
 ul {    
     display: flex;
     height: 50px;
@@ -46,11 +50,24 @@ ul li {
 ul li a {
     display: block;
     color: white;
+    top: -2px;
+    margin: 2px;
     padding: 14px 16px;
     text-decoration: none;
     border-right: 3px solid #bbbbbb;
     border-bottom: 3px solid #bbbbbb;
-    border-radius: 20px;
+    border-radius: 15px;
+    background: linear-gradient(315deg, rgb(166, 166, 166),rgb(66, 66, 66) ); 
+    transition: 0.3s ease-in-out;
+}
+ul li a:hover {
+    border-radius: 18px;
+    /* background: linear-gradient(305deg, #2a8224,#66e666 ); #cacaca #f0f0f0 */
+    border-right: 3px solid #525252;
+    border-bottom: 3px solid #525252;
+    background: linear-gradient(255deg, rgb(166, 166, 166),rgb(66, 66, 66) ); 
+    box-shadow:  -3px -3px 5px #bebebe, 3px 3px 5px #ffffff;
+    animation: effectHover 2s infinite;
 }
 
 /* ul li a:hover {
@@ -58,10 +75,29 @@ ul li a {
     border-radius: 20px;
 } */
 .clickNav {
-    /* background-color: #111111; */
-    border-radius: 20px;
+    border-radius: 15px;
     color: black;
-    background-color: white;
+    font-weight: bold;
+    background: linear-gradient(315deg, #389b2f,#66e666 ); 
+    box-shadow:  -3px -3px 5px #bebebe, 3px 3px 5px #ffffff;
+    animation: effectHover 2s infinite;
+}
+.clickNav:hover {
+    border-radius: 18px;
+    background: linear-gradient(255deg, #2a8224,#66e666 ); 
+    box-shadow:  -3px -3px 5px #bebebe, 3px 3px 5px #ffffff;
+    /* animation: effectHover 2s infinite; */
+}
+@keyframes effectHover {
+    0%    {opacity: 0.8;}
+    50%   {opacity: 1; transform: scale(1.02)}
+    100%  {opacity: 0.8;}
+}
+
+.centreon {
+    border-radius: 15px;
+    border-right: 3px solid #bbbbbb;
+    border-bottom: 3px solid #bbbbbb;
 }
 
 
@@ -89,6 +125,33 @@ p {
 p span {
     font-size: 40px;
     color:#00ffee;
+}
+
+
+.child2 img.teletubbies {
+    animation: zoom 1.3s ease-in-out;
+}
+.child2 img.teletubbies2 {
+    animation: zoom2 1.3s ease-in-out;
+}
+.child2 img.teletubbies3 {
+    animation: zoom3 0.8s ease-in-out;
+}
+@keyframes zoom {
+    0%    {opacity: 0; transform: rotate(90deg) translateX(-300px);}
+    50%   {transform: rotate(-45deg) scale(1.5);}
+    100%  {transform: scale(1) translateY(-30px);}
+}
+@keyframes zoom2 {
+    0%    {opacity: 0; transform: rotate(-90deg) translateX(300px);}
+    50%   {transform: rotate(45deg) scale(1.5);}
+    100%  {transform: scale(1) translateY(-30px);}
+}
+@keyframes zoom3 {
+    0%    {opacity: 0}
+    50%   {transform: scale(1.5);}
+    75%   {transform: scale(0.8) translateY(-30px);}
+    100%  {transform: scale(1) translateY(-30px);}
 }
 
 /* ********************************** */
@@ -126,23 +189,45 @@ form {
     padding:10px;
     /* width:max-content; */
     width:510px;
-    border-radius: 5px;
-    border : 2px solid black;
+    border-radius: 5px 25px 5px 25px;
+    border : 4px groove black;
     box-shadow: 10px 10px 2px 1px rgba(40, 40, 170, 0.4);
+    transition: all 0.8s ease-in-out;
+}
+form:hover {
+    border : 4px ridge black;
+    box-shadow: 10px 10px 8px 4px rgba(10, 10, 170, 0.4);
+    transition: all 0.8s ease-in-out;
 }
 
 .pinGauche {
     position:absolute;
     top:-25px;
     left:-5px;
+    animation: appearGauche 1s ease-in-out;
 }
-
 .pinDroite {
     position:absolute;
     top:-20px;
     left:480px;
+    animation: appearDroite 1s ease-in-out;
+    animation-delay: 0.2s;
+}
+@keyframes appearGauche {
+    0% {opacity: 0.2; transform: translateX(-5px) translateY(-5px);}
+}
+@keyframes appearDroite {
+    0% {opacity: 0.2; transform: translateX(5px) translateY(-5px);}
 }
 
+.placementVolume div, .placementApplication div {
+    text-align: center;
+    margin-right: 5px;
+}
+.fleche{
+    display: flex;
+    align-items: center;
+}
 /* ********************************** */
 /* ********************************** */
 
@@ -161,7 +246,7 @@ thead tr {
     position:sticky; 
     /* z-index:2;  */
     left:0px;
-    top: 200px; /* 50px + 150px */
+    top: 209px; /* 50px + 150px */
 }
 
 th#colVolume, th#colApplication, th#colUsePrct {
@@ -186,6 +271,17 @@ th {
     color:white;
     font-weight: bold;
     background-color: #088880;
+    border-top: 3px solid #088880;
+    border-bottom: 3px solid #088880;
+}
+th:hover {
+    border-top: 3px solid #00605a;
+    border-bottom: 3px solid #00605a;
+}
+
+th span {
+    font-size: 14px;
+    font-style: italic;
 }
 
 /* th div {
@@ -201,6 +297,20 @@ td {
     white-space: nowrap;
 }
 
+/* #MaTableVV td:last-child, #MaTableFS td:last-child  {
+    transition: transform 0.2s ease-out;
+}
+#MaTableVV td:last-child:hover, #MaTableFS td:last-child:hover {
+    transform: translateX(5px);
+} */
+#MaTableVV td:last-child:hover, #MaTableFS td:last-child:hover {
+    animation: decalage 0.2s ease-out;
+}
+@keyframes decalage {
+    0%    {opacity: 0.7; transform: translateX(10px);}
+    100%  {opacity: 0.3; transform: translateX(0px);}
+}
+
 tr:nth-child(even) { background-color: #ececec; }
 
 tr:nth-child(odd)  { background-color: white; }
@@ -208,12 +318,15 @@ tr:nth-child(odd)  { background-color: white; }
 tr:hover {
     font-size:17px;
     font-weight: bold;
+    background-color:ivory; 
 }
 
 .asc0 , .desc0,
+.asc5 , .desc5,
 .asc6 , .desc6,
 .asc9 , .desc9 {transition: transform 0.1s;}
 
 .asc0:hover, .desc0:hover,
+.asc5:hover, .desc5:hover,
 .asc6:hover, .desc6:hover,
 .asc9:hover, .desc9:hover {transform: scale(1.2);}

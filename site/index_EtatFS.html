@@ -10,15 +10,19 @@
 </head>
 <body>
     <div class="navbar">
-        <ul>
-            <li><a href="./index.html" id="pageNav1" onclick=clickNav()>Etat VV</a></li>
-            <li><a href="./index_EtatFS.html" id="pageNav2" class="clickNav" onclick=clickNav()>Etat FS</a></li>
-        </ul>
-
+        <div class="bordul">
+            <ul>
+                <img class="centreon" src="./img/logoCentreon_rsz.png" alt="centreon"/>
+                <li><a href="./index.html" id="pageNav1" onclick=clickNav(1)>Etat VV</a></li>
+                <li><a href="./index_HistoVV.html" id="pageNav2" onclick=clickNav(2)>Histo VV</a></li>
+                <li><a href="./index_EtatFS.html" id="pageNav3" class="clickNav" onclick=clickNav(3)>Etat FS</a></li>
+                <img class="database" src="./img/database_bg_rsz.png" alt="database" style="padding: 5px;"/>
+            </ul>
+        </div>
         <div class="header">
             <div class="entete">
                 <div class="child1"><p>Niveaux de consommation <span>File-System</span> d'AppliShalala</p></div>
-                <div class="child2"><img class="teletubbies" src="./img/teletubbies_bg_rsz.png" alt="image teletubbies"/></div>
+                <div class="child2"><img class="teletubbies3" src="./img/teletubbies3_bg_rsz.png" alt="teletubbies"/></div>
                 <div class="child3">
 
                     <form name="my-form" action="">
@@ -29,7 +33,7 @@
                         <label>Veuillez choisir un quartier :</label>
                         <select id="quartier" name="quartier">
                             <option value="" selected>Selection...</option>
-                            <!-- <option value="TOP20">TOP 20 - Niveau d'utilisation</option> -->
+                            <option value="TOP20">TOP 20 - Niveau d'utilisation</option>
                             <option value="AN">AN - Annuaires</option>
                             <option value="AP">AP - Services aux applications</option>
                             <option value="CN">CN - Comptabilité nationale</option>
@@ -60,10 +64,12 @@
         </div>
     </div>
 
-    <table id="MaTable2">
+
+    <table id="MaTableFS">
         <thead></thead>
         <tbody></tbody>
     </table>
+
 
     <script type="text/javascript" src="./Js_00_FetchDataJSON.js"></script>
     <script type="text/javascript" src="./Js_01_AffichDate.js"></script>
@@ -75,7 +81,8 @@
 
         let periodeRef = "";
         let data = new Object();
-        periodeRef, data = getAllDataFS();
+        let dataTop20 = new Object();
+        periodeRef, data, dataTop20 = getAllDataFS();
 
         function getData() {
 
@@ -83,12 +90,16 @@
             // console.log("modalité choisie : " + choixQuartier);
 
             let dataFS = data;
-            console.log(dataFS);
+            // console.log(dataFS);
             // console.log(typeof(dataFS));
             // console.log(dataFS[0]);
             // console.log("longueur : "+Object.keys(dataFS).length);
 
-            dataFS = dataFS.filter(dat => (dat.quartier == choixQuartier));
+            if (choixQuartier!=="TOP20"){
+                dataFS = dataFS.filter(dat => (dat.quartier == choixQuartier));
+            } else {
+                dataFS = dataTop20;
+            }
             
             // creation d'une variable globale pour utilisation plus tard
             // dans fonction de tri (pas de let ou de const à mettre)

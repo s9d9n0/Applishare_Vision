@@ -4,47 +4,51 @@ function getTableVVHead() {
     const thead = document.querySelector('thead');
     tags  = `<tr>
                 <th id="colVolume">
-                    <div onclick="sortTable('MaTable',0)">Volume &nbsp; </br> &nbsp;</div>
-                    <div><input type="text" id="volume" 
-                            placeholder="recherche..." title="rech sur volume"
-                            onfocusin="focusInColonne('volume')"
-                            onfocusout="focusOutColonne('volume')" 
-                            onkeyup="filtreColonne('MaTable','volume',0)">
+                    <div class="placementVolume">
+                        <div>Volume</div>
+                        <div><input type="text" id="volume" 
+                                placeholder="recherche..." title="rech sur volume"
+                                onfocusin="focusInColonne('volume')"
+                                onfocusout="focusOutColonne('volume')" 
+                                onkeyup="filtreColonne('MaTableVV','volume',0)">
+                        </div>
                     </div>
                     <div class="fleche">
-                        <a class="asc0" onclick="sortESSAI_Table('MaTable','asc',0)">&#x25b4;Up&nbsp;/</a>
-                        <a class="desc0" onclick="sortESSAI_Table('MaTable','desc',0)">&nbsp;Down&#x25be;</a>
+                        <a class="asc0" onclick="sortESSAI_Table('MaTableVV','asc',0)">&#x25b4;</a>
+                        <a class="desc0" onclick="sortESSAI_Table('MaTableVV','desc',0)">&#x25be;</a>
                     </div>
                 </th>
 
-                <th onclick="sortTable('MaTable',1)">Env.</th>
-                <th onclick="sortTable('MaTable',2)">Quartier</th>
-                <th onclick="sortTable('MaTable',3)">DC</th>
-                <th onclick="sortTable('MaTable',4)">Zone</th>
-                <th onclick="sortTable('MaTable',5)">Type</th>
+                <th onclick="sortTable('MaTableVV',1)">Env.</th>
+                <th onclick="sortTable('MaTableVV',2)">Quartier</th>
+                <th onclick="sortTable('MaTableVV',3)">DC</th>
+                <th onclick="sortTable('MaTableVV',4)">Zone</th>
+                <th onclick="sortTable('MaTableVV',5)">Type</th>
 
                 <th id="colApplication">
-                    <div onclick="sortTable('MaTable',6)">Application &nbsp; </br> &nbsp;</div>
-                    <div><input type="text" id="application"
-                            placeholder="recherche..." title="rech sur application"
-                            onfocusin="focusInColonne('application')"
-                            onfocusout="focusOutColonne('application')" 
-                            onkeyup="filtreColonne('MaTable','application',6)">
+                    <div class="placementApplication">
+                        <div>Application</div>
+                        <div><input type="text" id="application"
+                                placeholder="recherche..." title="rech sur application"
+                                onfocusin="focusInColonne('application')"
+                                onfocusout="focusOutColonne('application')" 
+                                onkeyup="filtreColonne('MaTableVV','application',6)">
+                        </div>
                     </div>
                     <div class="fleche">
-                        <a class="asc6" onclick="sortESSAI_Table('MaTable','asc',6)">&#x25b4;</a>
-                        <a class="desc6" onclick="sortESSAI_Table('MaTable','desc',6)">&#x25be;</a>
+                        <a class="asc6" onclick="sortESSAI_Table('MaTableVV','asc',6)">&#x25b4;</a>
+                        <a class="desc6" onclick="sortESSAI_Table('MaTableVV','desc',6)">&#x25be;</a>
                     </div>
                 </th>
 
-                <th onclick="sortTable('MaTable',7)">Quota VV </br> (en GB)</th>
-                <th onclick="sortTable('MaTable',8)">Niv. d'utilisation </br> (en GB)</th>
+                <th onclick="sortTable('MaTableVV',7)">Quota VV <br/> <span>(en GB)</span></th>
+                <th onclick="sortTable('MaTableVV',8)">Niv. d'utilisation <br/> <span>(en GB)</span></th>
 
-                <th id="colUsePrct" onclick="sortTable('MaTable',9)">
-                    <div>Niv. d'utilisation </br> (en %)</div>
+                <th id="colUsePrct">
+                    <div>Niv. d'utilisation </br> <span>(en %)</span></div>
                     <div class="fleche">
-                        <a class="asc9" onclick="sortESSAI_Table('MaTable','asc',9)">&#x25b4;</a>
-                        <a class="desc9" onclick="sortESSAI_Table('MaTable','desc',9)">&#x25be;</a>
+                        <a class="asc9" onclick="sortESSAI_Table('MaTableVV','asc',9)">&#x25b4;</a>
+                        <a class="desc9" onclick="sortESSAI_Table('MaTableVV','desc',9)">&#x25be;</a>
                     </div>
                 </th>
 
@@ -53,25 +57,6 @@ function getTableVVHead() {
 }
 
 
-// function getTableBody(DataRef){
-//     const tbody = document.querySelector('tbody');
-//     let tags = "";
-//     for (let j=0; j<Object.keys(DataRef).length; j++){
-//     tags += `<tr>
-//                 <td style="text-align:center;">${DataRef[j].Volume}</td>
-//                 <td style="text-align:center;">${DataRef[j].env}</td>
-//                 <td style="text-align:center;">${DataRef[j].quartier}</td>
-//                 <td style="text-align:center;">${DataRef[j].dc}</td>
-//                 <td style="text-align:center;">${DataRef[j].zone}</td>
-//                 <td style="text-align:center;">${DataRef[j].type}</td>
-//                 <td>${DataRef[j].Application}</td>
-//                 <td>${parseFloat(DataRef[j].Cap)}</td>
-//                 <td>${parseFloat(DataRef[j].Use)}</td>
-//                 <td>${parseFloat(DataRef[j]['Use%'])}</td>
-//              </tr>`
-//     }
-//     tbody.innerHTML = tags;
-// }
 
 function getTableVVBody(DataRef){
     const tbody = document.querySelector('tbody');
@@ -132,39 +117,42 @@ function getTableFSHead() {
     const thead = document.querySelector('thead');
     tags  = `<tr>
                 <th id="colVolume">
-                    <div onclick="sortTable('MaTable2',0)">Volume &nbsp; </br> &nbsp;</div>
-                    <div><input type="text" id="volume" 
-                            placeholder="recherche..." title="rech sur volume"
-                            onfocusin="focusInColonne('volume')"
-                            onfocusout="focusOutColonne('volume')" 
-                            onkeyup="filtreColonne('MaTable2','volume',0)">
+                    <div class="placementVolume">
+                        <div>Volume</div>
+                        <div><input type="text" id="volume" 
+                                placeholder="recherche..." title="rech sur volume"
+                                onfocusin="focusInColonne('volume')"
+                                onfocusout="focusOutColonne('volume')" 
+                                onkeyup="filtreColonne('MaTableFS','volume',0)">
+                        </div>
                     </div>
                     <div class="fleche">
-                        <a class="asc0" onclick="sortESSAI_Table('MaTable2','asc',0)">&#x25b4;Up&nbsp;/</a>
-                        <a class="desc0" onclick="sortESSAI_Table('MaTable2','desc',0)">&nbsp;Down&#x25be;</a>
+                        <a class="asc0" onclick="sortESSAI_Table('MaTableFS','asc',0)">&#x25b4;</a>
+                        <a class="desc0" onclick="sortESSAI_Table('MaTableFS','desc',0)">&#x25be;</a>
                     </div>
                 </th>
 
-                <th onclick="sortTable('MaTable2',1)">Env.</th>
-                <th onclick="sortTable('MaTable2',2)">Quartier</th>
-                <th onclick="sortTable('MaTable2',3)">DC</th>
-                <th onclick="sortTable('MaTable2',4)">Zone</th>
-                <th onclick="sortTable('MaTable2',5)">Type</th>
+                <th onclick="sortTable('MaTableFS',1)">Env.</th>
+                <th onclick="sortTable('MaTableFS',2)">Quartier</th>
+                <th onclick="sortTable('MaTableFS',3)">DC</th>
+                <th onclick="sortTable('MaTableFS',4)">Zone</th>
+                <th onclick="sortTable('MaTableFS',5)">Type</th>
 
-                <th onclick="sortTable('MaTable2',6)">Quota FS </br> (en GB)</th>
-                <th onclick="sortTable('MaTable2',7)">Niv. d'utilisation </br> (en GB)</th>
+                <th onclick="sortTable('MaTableFS',6)">Quota FS <br/> <span>(en GB)</span></th>
+                <th onclick="sortTable('MaTableFS',7)">Niv. d'utilisation <br/> <span>(en GB)</span></th>
 
-                <th id="colUsePrct" onclick="sortTable('MaTable2',8)">
-                    <div>Niv. d'utilisation </br> (en %)</div>
+                <th id="colUsePrct">
+                    <div>Niv. d'utilisation </br> <span>(en %)</span></div>
                     <div class="fleche">
-                        <a class="asc8" onclick="sortESSAI_Table('MaTable2','asc',8)">&#x25b4;</a>
-                        <a class="desc8" onclick="sortESSAI_Table('MaTable2','desc',8)">&#x25be;</a>
+                        <a class="asc8" onclick="sortESSAI_Table('MaTableFS','asc',8)">&#x25b4;</a>
+                        <a class="desc8" onclick="sortESSAI_Table('MaTableFS','desc',8)">&#x25be;</a>
                     </div>
                 </th>
 
             </tr>`
     thead.innerHTML = tags;
 }
+
 
 
 function getTableFSBody(DataRef){

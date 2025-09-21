@@ -19,8 +19,8 @@ df_listURL['URL_light'] = df_listURL['URL_light'].str.replace('&amp;','&',regex=
 # modification ligne après ligne pour recréation chemin URL entier des pages VV
 for lg in range(len(df_listURL)):
     df_listURL.loc[lg,'URL_heavy'] = URL + '?' + \
-                                     df_listURL.loc[lg,'URL_light'] + '&qtree=' + \
-                                     df_listURL.loc[lg,'Volume']
+                                    df_listURL.loc[lg,'URL_light'] + '&qtree=' + \
+                                    df_listURL.loc[lg,'Volume']
 
 # print(df_listURL.loc[2:5,'URL_heavy'])
 

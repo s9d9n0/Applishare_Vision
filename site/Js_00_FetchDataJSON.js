@@ -40,12 +40,31 @@ const fetchDataVVTop20 = () => {
     ))
 }
 
+//lecture Historique des VV sur les derniers jours
+const fetchDataVV_Histo = () => {
+    return new Promise((resolve, reject) => (
+        fetch("./json/df_listVV_histo.json")
+            .then(res => res.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+    ))
+}
 
 
 // lecture liste des FS
 const fetchDataFS = () => {
     return new Promise((resolve, reject) => (
         fetch("./json/df_listFS.json")
+            .then(res => res.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+    ))
+}
+
+//lecture Top20 des FS les plus utlisés
+const fetchDataFSTop20 = () => {
+    return new Promise((resolve, reject) => (
+        fetch("./json/df_listFS_top20.json")
             .then(res => res.json())
             .then(data => resolve(data))
             .catch(err => reject(err))
@@ -90,6 +109,35 @@ async function getAllDataVV() {
 }
 
 
+
+
+async function getAllDataVV_Histo() {
+    periodeRef = await fetchPeriodeRef()
+    console.log("\n")
+    console.log("# Obtention de la date de référence : ####");
+    console.log("date de réf : "+periodeRef[0]["dateJour"]);
+    console.log("type de periodeRef : " + typeof periodeRef);
+    console.log("type de periodeRef[0]['dateJour'] : " + typeof periodeRef[0]["dateJour"]);
+    // mobilisation de la fonction getDateRef définie dans le script Js_01_AffichDate.js
+    // qui introduit la date dans la page HTML
+    getDateRef_Histo(periodeRef);
+    console.log("##########################################")
+
+    dataHisto = await fetchDataVV_Histo()
+    console.log("\n")
+    console.log("# Obtention des datas du tableau : #######");
+    console.log(dataHisto);
+    console.log("type de data : " + typeof(dataHisto));
+    console.log("affichage de data[0] : ")
+    console.log(dataHisto[0]);
+    console.log("##########################################")
+
+    return [periodeRef, dataHisto];
+}
+
+
+
+
 async function getAllDataFS() {
     periodeRef = await fetchPeriodeRef()
     console.log("\n")
@@ -111,5 +159,14 @@ async function getAllDataFS() {
     console.log(data[0]);
     console.log("##########################################")
 
-    return [periodeRef, data];
+    dataTop20 = await fetchDataFSTop20()
+    console.log("\n")
+    console.log("# Obtention des datas du tableauTOP20 : ##");
+    console.log(dataTop20);
+    console.log("type de dataTop20 : " + typeof(dataTop20));
+    console.log("affichage de dataTop20[0] : ");
+    console.log(dataTop20[0]);
+    console.log("##########################################")
+
+    return [periodeRef, data, dataTop20];
 }

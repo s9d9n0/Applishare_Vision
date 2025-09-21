@@ -162,13 +162,14 @@ df_VV_historique = pd.read_csv("../dataframe/historique/listVV/df_listVV_"+dateJ
 
 listfile = []
 for item in imp.os.listdir("../dataframe/historique/listVV"):
-    if item.startswith("df_listVV") and item.endswith("08h00m.csv") and not item.endswith("histo.csv"):
+    # if item.startswith("df_listVV") and item.endswith("08h00m.csv"):
+    if item.find("08h")!=-1:
         listfile.append(item)
 print("\n")
 print(listfile)
 
-# selection des 5 derniers éléments
-listfile = listfile[-5:]
+# selection des derniers éléments
+listfile = listfile[-15:]
 #print(listfile)
 
 listdf = []
@@ -177,31 +178,42 @@ for item in listfile:
     datecal_short = item[12:14]+item[15:17]+item[18:20]+item[20:27]
     print(datecal)
     df_temp = pd.read_csv("../dataframe/historique/listVV/df_listVV_"+datecal+".csv",sep=";")
-    df_temp.rename(columns={'Cap': 'Cap'+datecal_short, 
-                            'Use': 'Use'+datecal_short, 
-                            'UsePrct': 'UsePrct'+datecal_short}, inplace=True)
+    df_temp.rename(columns={'Cap': 'Cap'+datecal_short[2:-3], 
+                            'Use': 'Use'+datecal_short[2:-3], 
+                            'UsePrct': 'UsePrct'+datecal_short[2:-3]}, inplace=True)
     listdf.append(df_temp)
     # df_temp.to_csv("../dataframe/historique/df_listVV_"+datecal+"_rename.csv", sep=';', index=False)
 
 
 df_listVV_histo = pd.merge(listdf[0], listdf[1], 
-                           on=['env','quartier','dc','zone','type','Application'], how="outer")
+                            on=['env','quartier','dc','zone','type','Application'], 
+                            how="outer")
 for i in range(2,len(listdf)):
     df_listVV_histo = pd.merge(df_listVV_histo, listdf[i], 
-                               on=['env','quartier','dc','zone','type','Application'], how="outer")
+                                on=['env','quartier','dc','zone','type','Application'], how="outer")
 
 colonnes = df_listVV_histo.columns.to_list()
 col1 = colonnes[0:6]
 col2 = colonnes[6:]
 col2.sort()
 
-# print("\n")
-# print(col1)
-# print(col2)
-# print("\n")
+print("\n")
+print(col1)
+print(col2)
+print("\n")
 # concatenation des 2 listes obtenues puis ordonnancement des colonnes selon cette liste
 col = [*col1, *col2]
 df_listVV_histo = df_listVV_histo[col]
+# df_listVV_histo = df_listVV_histo.query("quartier=='AN'")
+
+# arrondi à 0.1 pour les colonnes de type use...
+for lg in range(len(df_listVV_histo)):
+    for col in range(21,36):
+        df_listVV_histo.iloc[lg,col] = pd.to_numeric(df_listVV_histo.iloc[lg,col], errors='coerce')
+        if df_listVV_histo.iloc[lg,col] >= 10_000:
+            df_listVV_histo.iloc[lg,col] = round(df_listVV_histo.iloc[lg,col],0)
+        else:
+            df_listVV_histo.iloc[lg,col] = round(df_listVV_histo.iloc[lg,col],1)
 
 df_listVV_histo.to_csv("../dataframe/historique/df_listVV_histo.csv", sep=';', index=False)
 

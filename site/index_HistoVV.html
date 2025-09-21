@@ -13,16 +13,16 @@
         <div class="bordul">
             <ul>
                 <img class="centreon" src="./img/logoCentreon_rsz.png" alt="centreon"/>
-                <li><a href="./index.html" id="pageNav1" class="clickNav" onclick=clickNav(1)>Etat VV</a></li>
-                <li><a href="./index_HistoVV.html" id="pageNav2" onclick=clickNav(2)>Histo VV</a></li>
+                <li><a href="./index.html" id="pageNav1" onclick=clickNav(1)>Etat VV</a></li>
+                <li><a href="./index_HistoVV.html" id="pageNav2" class="clickNav" onclick=clickNav(2)>Histo VV</a></li>
                 <li><a href="./index_EtatFS.html" id="pageNav3" onclick=clickNav(3)>Etat FS</a></li>
                 <img class="database" src="./img/database_bg_rsz.png" alt="database" style="padding: 5px;"/>
             </ul>
         </div>
         <div class="header">
             <div class="entete">
-                <div class="child1"><p>Niveaux de consommation <span>Virtual-Volume</span> d'AppliShalala</p></div>
-                <div class="child2"><img class="teletubbies" src="./img/teletubbies5_bg_rsz.png" alt="teletubbies"/></div>
+                <div class="child1"><p>Historique de consommation <span>Virtual-Volume</span> sur ces 2 dernières semaines</p></div>
+                <div class="child2"><a target="_blank" href="https://www.topito.com/top-preuves-teletubbies-gros-junkies"><img class="teletubbies2" src="./img/teletubbies2_bg_rsz.png" alt="teletubbies"/></a></div>
                 <div class="child3">
 
                     <form name="my-form" action="">
@@ -33,7 +33,7 @@
                         <label>Veuillez choisir un quartier :</label>
                         <select id="quartier" name="quartier">
                             <option value="" selected>Selection...</option>
-                            <option value="TOP20">TOP 20 - Niveau d'utilisation</option>
+                            <!-- <option value="TOP20">TOP 20 - Niveau d'utilisation</option> -->
                             <option value="AN">AN - Annuaires</option>
                             <option value="AP">AP - Services aux applications</option>
                             <option value="CN">CN - Comptabilité nationale</option>
@@ -65,7 +65,7 @@
     </div>
 
 
-    <table id="MaTableVV">
+    <table id="MaTableVV_Histo">
         <thead></thead>
         <tbody></tbody>
     </table>
@@ -73,34 +73,34 @@
 
     <script type="text/javascript" src="./Js_00_FetchDataJSON.js"></script>
     <script type="text/javascript" src="./Js_01_AffichDate.js"></script>
-    <script type="text/javascript" src="./Js_02_CreaTable.js"></script>
+    <script type="text/javascript" src="./Js_02_CreaTable_Histo.js"></script>
     <script type="text/javascript" src="./Js_03_FiltreTable.js"></script>
     <script type="text/javascript" src="./Js_04_TriTable.js"></script>
 
     <script>
 
         let periodeRef = "";
-        let data = new Object();
-        let dataTop20 = new Object();
-        periodeRef, data, dataTop20 = getAllDataVV();
+        let dataHisto = new Object();
+        periodeRef, dataHisto = getAllDataVV_Histo();
 
         function getData() {
 
             let choixQuartier = document.getElementById("choixQuartier").innerText;
             // console.log("modalité choisie : " + choixQuartier);
 
-            let dataVV = data;
+            let dataVV = dataHisto;
             // console.log(dataVV);
             // console.log(typeof(dataVV));
             // console.log(dataVV[0]);
             // console.log("longueur : "+Object.keys(dataVV).length);
+            console.log("nom de la colonne 20 : "+Object.keys(dataVV[1])[20]);
+            console.log("nom de la colonne 21 : "+Object.keys(dataVV[1])[21]);
+            console.log("nom de la colonne 35 : "+Object.keys(dataVV[1])[35]);
+            console.log("nom de la colonne 36 : "+Object.keys(dataVV[1])[36]);
+            console.log("nom de la colonne 50 : "+Object.keys(dataVV[1])[50]);
 
-            if (choixQuartier!=="TOP20"){
-                dataVV = dataVV.filter(dat => (dat.quartier == choixQuartier));
-            } else {
-                dataVV = dataTop20;
-            }
-            
+            dataVV = dataVV.filter(dat => (dat.quartier == choixQuartier));
+
             // creation d'une variable globale pour utilisation plus tard
             // dans fonction de tri (pas de let ou de const à mettre)
             dataTable = dataVV;
@@ -122,8 +122,9 @@
             // console.log(dataSimpleJson);
             // console.log(dataSimpleJson[1])
 
-            getTableVVHead();
-            getTableVVBody(dataVV);
+            listCol = getColnameJson(dataVV);
+            getTableVVHead_Histo(listCol);
+            getTableVVBody_Histo(dataVV,listCol);
         }
 
         /////////////////////////////////////////////

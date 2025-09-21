@@ -57,7 +57,7 @@ def creaVar(df : pd.DataFrame) -> pd.DataFrame:
             if df.loc[lg,'zone']=="00":
                 df.loc[lg,'zone']="Dmz"
             df.loc[lg,'type'] = df.loc[lg,'Volume'][19:25]
- 
+
         elif df.loc[lg,'Volume'][6:11]=="_as4_":
             df.loc[lg,'env'] = df.loc[lg,'Volume'][4:6]
             df.loc[lg,'quartier'] = df.loc[lg,'Volume'][11:13].upper()

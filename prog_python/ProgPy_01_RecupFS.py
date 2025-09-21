@@ -36,9 +36,9 @@ print(list_result[0:12])
 nbline_listresult = divmod(len(list_result),4)[0]
 reste_listresult = divmod(len(list_result),4)[1]
 print("\ndivision du nombre element par groupe de 4 : \n" +
-      "nbre element de la liste : " + str(len(list_result)) + "\n" +
-      "nbre de lignes : " + str(nbline_listresult) + "\n" +
-      "reste de la division par 4 : " + str(reste_listresult) + "\n")
+        "nbre element de la liste : " + str(len(list_result)) + "\n" +
+        "nbre de lignes : " + str(nbline_listresult) + "\n" +
+        "reste de la division par 4 : " + str(reste_listresult) + "\n")
 
 # création de la liste 
 line = 0
@@ -53,7 +53,7 @@ df_listFS = df_listFS[1:]
 df_listFS.reset_index(drop=True, inplace=True)
 
 print("contenu du dataframe df_listFS...\n" + 
-      "format (nb_ligne, nb_colonne)-> "+str(df_listFS.shape) + "\n")
+        "format (nb_ligne, nb_colonne)-> "+str(df_listFS.shape) + "\n")
 # print(df_listFS.head())
 # print(df_listFS[30:35])
 # print(df_listFS.tail())
@@ -153,11 +153,21 @@ df_listFS.reset_index(drop=True, inplace=True)
 df_listFS = df_listFS.sort_values(by=['env','quartier','dc','zone','type'], 
                                     ascending=[True,True,True,True,True])
 
+
+df_listFS_top20 = df_listFS.drop(columns=['URL_light'])
+df_listFS_top20 = df_listFS_top20.sort_values(by=['UsePrct'], ascending=[False]).head(20)
+df_listFS_top20.reset_index(drop=True, inplace=True)
+print("\n")
+print("IMPRESSION TOP 20 DE LA TABLE DES FS :")
+print(df_listFS_top20)
+
 ##################################################################################
 ##################################################################################
 # sauvegarde intermédiaire PARTIE C
 df_listFS.to_csv("../dataframe/df_listFS_C.csv", sep=';', index=False)
 df_listFS = pd.read_csv("../dataframe/df_listFS_C.csv",sep=";")
+
+df_listFS_top20.to_csv('../dataframe/df_listFS_top20.csv', sep=';', index=False)
 ##################################################################################
 ##################################################################################
 
